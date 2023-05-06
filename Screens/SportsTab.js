@@ -20,7 +20,7 @@ const SportsTab = () => {
   return (
     <SafeAreaView>
       <ScrollView
-        style={{ marginTop: 10 }}
+        style={{ marginTop: 5, marginBottom: -5 }}
         horizontal
         showsHorizontalScrollIndicator={false}
       >
@@ -31,24 +31,31 @@ const SportsTab = () => {
             style={
               item.sportName === selectedSport
                 ? {
-                    padding: 10,
                     margin: 10,
+
+                    paddingTop: 7.5,
+                    paddingBottom: 7.5,
+                    paddingLeft: 30,
+                    paddingRight: 30,
                     borderColor: "#662d91",
                     borderWidth: 1,
                     borderRadius: 10,
-                    paddingLeft: 20,
-                    paddingRight: 20,
+                    justifyContent: "center",
                     flexDirection: "row",
                     backgroundColor: "#662d91",
+                    alignContent: "space-between",
                   }
                 : {
-                    padding: 10,
                     margin: 10,
+
+                    paddingTop: 7.5,
+                    paddingBottom: 7.5,
+                    paddingLeft: 30,
+                    paddingRight: 30,
                     borderColor: "white",
                     borderWidth: 1,
                     borderRadius: 10,
-                    paddingLeft: 20,
-                    paddingRight: 20,
+                    justifyContent: "center",
                     flexDirection: "row",
                     backgroundColor: "white",
                   }

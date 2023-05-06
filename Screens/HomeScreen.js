@@ -6,6 +6,7 @@ import {
   View,
   Text,
   TextInput,
+  Platform,
 } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native";
@@ -23,12 +24,15 @@ const HomeScreen = () => {
 
   return (
     <>
-      <SafeAreaView style={{ backgroundColor: "#F0F0F0" }}>
-        <View>
+      <SafeAreaView style={styles.safeArea}>
+        <View style={{}}>
           <Header />
           <SportsTab />
         </View>
-        <ScrollView style={{ marginBottom: "auto" }}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          style={{ marginBottom: "auto" }}
+        >
           <Carousel />
           <MatchList />
         </ScrollView>
@@ -41,4 +45,9 @@ const HomeScreen = () => {
 
 export default HomeScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  safeArea: {
+    backgroundColor: "#F0F0F0",
+    paddingTop: Platform.OS === "android" ? "10%" : 0,
+  },
+});

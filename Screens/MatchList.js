@@ -12,6 +12,7 @@ const MatchList = () => {
   const matchInfo = [
     {
       title: "Rwanda T20 League",
+      lineUps: "false",
       shortMatchName1: "RG",
       longMatchName1: "Right Guards CC",
       matchImageUrl1:
@@ -20,10 +21,11 @@ const MatchList = () => {
       longMatchName2: "Zonic Tigers ",
       matchImageUrl2:
         "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "05/02/2023 00:00:00",
+      time: "05/07/2023 00:00:00",
     },
     {
       title: "Indian T20 League",
+      lineUps: "true",
       shortMatchName1: "LUC",
       longMatchName1: "Lucknow",
       matchImageUrl1:
@@ -32,10 +34,11 @@ const MatchList = () => {
       longMatchName2: "Bangalore",
       matchImageUrl2:
         "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RCB1@2x.png",
-      time: "05/06/2023 07:30:00",
+      time: "05/08/2023 07:30:00",
     },
     {
       title: "Indian T20 League",
+      lineUps: "true",
       shortMatchName1: "LUC",
       longMatchName1: "Lucknow",
       matchImageUrl1:
@@ -48,6 +51,7 @@ const MatchList = () => {
     },
     {
       title: "Indian T20 League",
+      lineUps: "true",
       shortMatchName1: "LUC",
       longMatchName1: "Lucknow",
       matchImageUrl1:
@@ -97,30 +101,46 @@ const MatchList = () => {
           Upcoming Matches
         </Text>
       </View>
+
       {matchInfo.map((item, index) => (
         <Pressable
           key={index}
           style={{
             margin: 10,
-            padding: 15,
+            padding: 13,
             width: "auto",
             height: "auto",
             borderColor: "gray",
             borderWidth: 0.5,
             borderRadius: 7,
-            marginLeft: 20,
-            marginRight: 20,
+            marginLeft: 5,
+            marginRight: 5,
           }}
         >
-          <View style={{ flexDirection: "row" }}>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
             <Text
               style={{
                 color: "gray",
-                fontSize: 13,
-                fontWeight: "500",
+                fontSize: 14,
+                fontWeight: "700",
               }}
             >
               {item.title}
+            </Text>
+            <Text
+              style={{
+                color: "#06992d",
+                fontSize: 14,
+                fontWeight: "600",
+              }}
+            >
+              {item.lineUps == "true" ? "LineUps Out" : ""}
             </Text>
           </View>
 
@@ -138,10 +158,15 @@ const MatchList = () => {
                 justifyContent: "space-evenly",
                 margin: "auto",
                 padding: 10,
+                marginRight: 50,
               }}
             >
               <Image
-                style={{ width: 50, height: 50, borderRadius: 10 }}
+                style={{
+                  width: 50,
+                  height: 50,
+                  borderRadius: 10,
+                }}
                 source={{
                   uri: item.matchImageUrl1,
                 }}
@@ -182,6 +207,7 @@ const MatchList = () => {
                 justifyContent: "space-between",
                 margin: "auto",
                 padding: 10,
+                marginLeft: 50,
               }}
             >
               <Text
