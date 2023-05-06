@@ -25,7 +25,7 @@ const HomeScreen = () => {
   return (
     <>
       <SafeAreaView style={styles.safeArea}>
-        <View style={{}}>
+        <View>
           <Header />
           <SportsTab />
         </View>
