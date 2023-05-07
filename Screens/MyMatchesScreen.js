@@ -1,11 +1,48 @@
-import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const MyMatchesScreen = () => {
+import Header from "./Header";
+import SportsTab from "./SportsTab";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import UpcomingScren from "./UpcomingScreen";
+import LiveScreen from "./LiveScreen";
+import CompletedScreen from "./CompletedScreen";
+
+const Tab = createMaterialTopTabNavigator();
+
+const MyMatchesScreen = ({ navigation }) => {
   return (
-    <View>
-      <Text>MyMatchesScreen</Text>
-    </View>
+    <>
+      <View>
+        <Header />
+        <SportsTab />
+      </View>
+      <Tab.Navigator
+        initialRouteName="Upcoming"
+        screenOptions={{
+          tabBarActiveTintColor: "#662d91",
+          tabBarLabelStyle: { fontSize: 12, fontWeight: "700" },
+          tabBarStyle: { backgroundColor: "#F0F0F0" },
+          tabBarIndicatorStyle: { backgroundColor: "#662d91" },
+        }}
+      >
+        <Tab.Screen
+          name="Upcoming"
+          component={UpcomingScren}
+          options={{ tabBarLabel: "Upcoming" }}
+        />
+        <Tab.Screen
+          name="Notifications"
+          component={LiveScreen}
+          options={{ tabBarLabel: "Live" }}
+        />
+        <Tab.Screen
+          name="Profile"
+          component={CompletedScreen}
+          options={{ tabBarLabel: "Completed" }}
+        />
+      </Tab.Navigator>
+    </>
   );
 };
 

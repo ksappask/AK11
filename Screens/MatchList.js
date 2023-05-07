@@ -91,7 +91,11 @@ const MatchList = () => {
     console.log("\n\nCurrent Date : " + currentTime);
     console.log("End Date : " + endTime);
     console.log("Seconds : " + diff);
-    return Math.abs(diff);
+
+    if (diff < 0) {
+      return Math.abs(diff);
+    }
+    return 0;
   };
 
   return (
@@ -190,14 +194,26 @@ const MatchList = () => {
                 fontSize: 10,
               }}
             >
-              <CountDown
-                until={calculateSeconds(item.time)}
-                size={12}
-                digitStyle={{ backgroundColor: "#F0F0F0" }}
-                digitTxtStyle={{ color: "#662d91" }}
-                timeLabelStyle={{ color: "#662d91", fontWeight: "500" }}
-                timeToShow={["D", "H", "M", "S"]}
-              />
+              {calculateSeconds(item.time) !== 0 ? (
+                <CountDown
+                  until={calculateSeconds(item.time)}
+                  size={12}
+                  digitStyle={{ backgroundColor: "#F0F0F0" }}
+                  digitTxtStyle={{ color: "#662d91" }}
+                  timeLabelStyle={{ color: "#662d91", fontWeight: "500" }}
+                  timeToShow={["D", "H", "M", "S"]}
+                />
+              ) : (
+                <Text
+                  style={{
+                    color: "#662d91",
+                    fontSize: 14,
+                    fontWeight: "500",
+                  }}
+                >
+                  Timed Out
+                </Text>
+              )}
             </Text>
 
             <View

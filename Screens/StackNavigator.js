@@ -6,7 +6,8 @@ import HomeScreen from "./HomeScreen";
 import WalletScreen from "./WalletScreen";
 import MyMatchesScreen from "./MyMatchesScreen";
 import MoreScreen from "./MyMatchesScreen";
-import MainContainer from "./MainContainer";
+
+import HomeBottomTab from "./HomeBottomTab";
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -15,28 +16,14 @@ const StackNavigator = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Main"
-          component={MainContainer}
+          name="HomeBottomTab"
+          component={HomeBottomTab}
           options={{ headerShown: false }}
         />
+
         <Stack.Screen
-          name="Home"
+          name="HomeScreen"
           component={HomeScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Wallet"
-          component={WalletScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="MyMatches"
-          component={MyMatchesScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="More"
-          component={MoreScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

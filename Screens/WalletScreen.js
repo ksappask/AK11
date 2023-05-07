@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const Wallet = () => {
+const Wallet = ({ navigation }) => {
   return (
     <View>
-      <Text>Wallet</Text>
+      <Text onPress={() => navigation.navigate("More")}>Wallet</Text>
     </View>
   );
 };

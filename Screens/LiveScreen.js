@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const More = ({ navigation }) => {
+const LiveScreen = () => {
   return (
     <View>
-      <Text onPress={() => navigation.navigate("Home")}>More</Text>
+      <Text>LiveScreen</Text>
     </View>
   );
 };
 
-export default More;
+export default LiveScreen;
 
 const styles = StyleSheet.create({});

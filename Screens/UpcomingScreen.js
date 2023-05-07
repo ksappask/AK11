@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const More = ({ navigation }) => {
+const UpcomingScreen = () => {
   return (
     <View>
-      <Text onPress={() => navigation.navigate("Home")}>More</Text>
+      <Text>UpcomingScreen</Text>
     </View>
   );
 };
 
-export default More;
+export default UpcomingScreen;
 
 const styles = StyleSheet.create({});
