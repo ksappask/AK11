@@ -7,13 +7,13 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import UpcomingScren from "./UpcomingScreen";
 import LiveScreen from "./LiveScreen";
 import CompletedScreen from "./CompletedScreen";
-
+import Style from "../Style";
 const Tab = createMaterialTopTabNavigator();
 
 const MyMatchesScreen = ({ navigation }) => {
   return (
     <>
-      <View>
+      <View style={Style.safeArea}>
         <Header />
         <SportsTab />
       </View>

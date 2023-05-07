@@ -1,12 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import React from "react";
 
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+
+const Tab = createMaterialTopTabNavigator();
+
 const Wallet = ({ navigation }) => {
-  return (
-    <View>
-      <Text onPress={() => navigation.navigate("More")}>Wallet</Text>
-    </View>
-  );
+  return <></>;
 };
 
 export default Wallet;

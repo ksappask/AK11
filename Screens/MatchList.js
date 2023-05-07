@@ -133,6 +133,8 @@ const MatchList = () => {
                 color: "gray",
                 fontSize: 14,
                 fontWeight: "700",
+                alignSelf: "flex-start",
+                paddingLeft: 10,
               }}
             >
               {item.title}
@@ -142,6 +144,8 @@ const MatchList = () => {
                 color: "#06992d",
                 fontSize: 14,
                 fontWeight: "600",
+                alignSelf: "flex-end",
+                paddingRight: 10,
               }}
             >
               {item.lineUps == "true" ? "LineUps Out" : ""}
@@ -157,92 +161,131 @@ const MatchList = () => {
           >
             <View
               style={{
-                flexDirection: "row",
+                flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "space-evenly",
-                margin: "auto",
-                padding: 10,
                 marginRight: 50,
               }}
             >
-              <Image
+              <View
                 style={{
-                  width: 50,
-                  height: 50,
-                  borderRadius: 10,
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "space-evenly",
+                  alignSelf: "flex-start",
+                  paddingLeft: 10,
                 }}
-                source={{
-                  uri: item.matchImageUrl1,
+              >
+                <Image
+                  style={{
+                    width: 50,
+                    height: 50,
+                    borderRadius: 10,
+                  }}
+                  source={{
+                    uri: item.matchImageUrl1,
+                  }}
+                ></Image>
+                <Text
+                  style={{
+                    fontWeight: "700",
+                    color: "gray",
+                    fontSize: 13,
+                    marginLeft: 5,
+                  }}
+                >
+                  {item.shortMatchName1}
+                </Text>
+              </View>
+              <Text
+                style={{
+                  color: "gray",
+                  fontSize: 13,
+                  fontWeight: "500",
+                  alignSelf: "flex-start",
+                  paddingLeft: 10,
                 }}
-              ></Image>
+              >
+                {item.longMatchName1}
+              </Text>
+            </View>
+            <View>
               <Text
                 style={{
                   fontWeight: "700",
                   color: "gray",
-                  fontSize: 13,
-                  marginLeft: 5,
+                  fontSize: 10,
+                  width: 100,
                 }}
               >
-                {item.shortMatchName1}
+                {calculateSeconds(item.time) !== 0 ? (
+                  <CountDown
+                    until={calculateSeconds(item.time)}
+                    size={12}
+                    digitStyle={{ backgroundColor: "#F0F0F0" }}
+                    digitTxtStyle={{ color: "#662d91" }}
+                    timeLabelStyle={{ color: "#662d91", fontWeight: "500" }}
+                    timeToShow={["D", "H", "M", "S"]}
+                  />
+                ) : (
+                  <Text
+                    style={{
+                      color: "#662d91",
+                      fontSize: 14,
+                      fontWeight: "500",
+                    }}
+                  >
+                    Something Wrong
+                  </Text>
+                )}
               </Text>
             </View>
-
-            <Text
-              style={{
-                fontWeight: "700",
-                color: "gray",
-                fontSize: 10,
-              }}
-            >
-              {calculateSeconds(item.time) !== 0 ? (
-                <CountDown
-                  until={calculateSeconds(item.time)}
-                  size={12}
-                  digitStyle={{ backgroundColor: "#F0F0F0" }}
-                  digitTxtStyle={{ color: "#662d91" }}
-                  timeLabelStyle={{ color: "#662d91", fontWeight: "500" }}
-                  timeToShow={["D", "H", "M", "S"]}
-                />
-              ) : (
-                <Text
-                  style={{
-                    color: "#662d91",
-                    fontSize: 14,
-                    fontWeight: "500",
-                  }}
-                >
-                  Timed Out
-                </Text>
-              )}
-            </Text>
-
             <View
               style={{
-                flexDirection: "row",
+                flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "space-between",
-                margin: "auto",
-                padding: 10,
                 marginLeft: 50,
               }}
             >
-              <Text
+              <View
                 style={{
-                  fontWeight: "700",
-                  color: "gray",
-                  fontSize: 13,
-                  marginRight: 5,
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  alignSelf: "flex-end",
+                  paddingRight: 10,
                 }}
               >
-                {item.shortMatchName2}
-              </Text>
+                <Text
+                  style={{
+                    fontWeight: "700",
+                    color: "gray",
+                    fontSize: 13,
+                    marginRight: 5,
+                  }}
+                >
+                  {item.shortMatchName2}
+                </Text>
 
-              <Image
-                style={{ width: 50, height: 50, borderRadius: 10 }}
-                source={{
-                  uri: item.matchImageUrl2,
+                <Image
+                  style={{ width: 50, height: 50, borderRadius: 10 }}
+                  source={{
+                    uri: item.matchImageUrl2,
+                  }}
+                ></Image>
+              </View>
+              <Text
+                style={{
+                  color: "gray",
+                  fontSize: 13,
+                  fontWeight: "500",
+                  alignSelf: "flex-end",
+                  paddingRight: 10,
                 }}
-              ></Image>
+              >
+                {item.longMatchName2}
+              </Text>
             </View>
           </View>
           <View
@@ -258,18 +301,14 @@ const MatchList = () => {
                 fontSize: 13,
                 fontWeight: "500",
               }}
-            >
-              {item.longMatchName1}
-            </Text>
+            ></Text>
             <Text
               style={{
                 color: "gray",
                 fontSize: 13,
                 fontWeight: "500",
               }}
-            >
-              {item.longMatchName2}
-            </Text>
+            ></Text>
           </View>
         </Pressable>
       ))}

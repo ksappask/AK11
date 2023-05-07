@@ -17,13 +17,14 @@ import Header from "./Header";
 import SportsTab from "./SportsTab";
 import { useNavigation } from "@react-navigation/native";
 import Carousel from "./Carousel";
+import Style from "../Style";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
 
   return (
     <>
-      <SafeAreaView style={styles.safeArea}>
+      <SafeAreaView style={Style.safeArea}>
         <View>
           <Header />
           <SportsTab />
@@ -42,8 +43,4 @@ const HomeScreen = () => {
 
 export default HomeScreen;
 
-const styles = StyleSheet.create({
-  safeArea: {
-    backgroundColor: "#F0F0F0",
-  },
-});
+const styles = StyleSheet.create({});
