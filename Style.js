@@ -5,4 +5,7 @@ export default StyleSheet.create({
     backgroundColor: "#F0F0F0",
     paddingTop: Platform.OS === "android" ? "10%" : 0,
   },
+  bg: {
+    backgroundColor: "#F0F0F0",
+  },
 });

@@ -8,7 +8,10 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import CountDown from "react-native-countdown-component";
-const MatchList = () => {
+import MatchScreen from "./MatchScreen";
+import { useNavigation } from "@react-navigation/native";
+const MatchList = ({}) => {
+  const navigation = useNavigation();
   const matchInfo = [
     {
       title: "Rwanda T20 League",
@@ -21,7 +24,7 @@ const MatchList = () => {
       longMatchName2: "Zonic Tigers ",
       matchImageUrl2:
         "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "05/07/2023 00:00:00",
+      time: "05/20/2023 00:00:00",
     },
     {
       title: "Indian T20 League",
@@ -34,7 +37,7 @@ const MatchList = () => {
       longMatchName2: "Bangalore",
       matchImageUrl2:
         "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RCB1@2x.png",
-      time: "05/08/2023 07:30:00",
+      time: "05/18/2023 07:30:00",
     },
     {
       title: "Indian T20 League",
@@ -47,7 +50,7 @@ const MatchList = () => {
       longMatchName2: "Bangalore",
       matchImageUrl2:
         "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RCB1@2x.png",
-      time: "05/09/2023 10:00:00",
+      time: "05/15/2023 10:00:00",
     },
     {
       title: "Indian T20 League",
@@ -60,7 +63,7 @@ const MatchList = () => {
       longMatchName2: "Bangalore",
       matchImageUrl2:
         "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RCB1@2x.png",
-      time: "05/10/2023 14:00:00",
+      time: "05/18/2023 14:00:00",
     },
   ];
 
@@ -108,6 +111,7 @@ const MatchList = () => {
 
       {matchInfo.map((item, index) => (
         <Pressable
+          onPress={() => navigation.navigate("MatchScreen")}
           key={index}
           style={{
             margin: 10,

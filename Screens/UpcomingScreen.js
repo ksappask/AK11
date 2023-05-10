@@ -22,7 +22,7 @@ const matchInfo = [
     longMatchName2: "Zonic Tigers ",
     matchImageUrl2:
       "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-    time: "05/07/2023 00:00:00",
+    time: "05/18/2023 00:00:00",
   },
   {
     title: "Indian T20 League",
@@ -36,7 +36,7 @@ const matchInfo = [
     longMatchName2: "Bangalore",
     matchImageUrl2:
       "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RCB1@2x.png",
-    time: "05/08/2023 07:30:00",
+    time: "05/18/2023 07:30:00",
   },
   {
     title: "Indian T20 League",
@@ -50,21 +50,21 @@ const matchInfo = [
     longMatchName2: "Bangalore",
     matchImageUrl2:
       "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RCB1@2x.png",
-    time: "05/09/2023 10:00:00",
+    time: "05/20/2023 10:00:00",
   },
   {
     title: "Indian T20 League",
     status: "Upcoming",
     lineUps: "true",
-    shortMatchName1: "LUC",
+    shortMatchName1: "LUCK",
     longMatchName1: "Lucknow",
     matchImageUrl1:
       "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-LSG1@2x.png",
-    shortMatchName2: "BLR",
+    shortMatchName2: "BLRG",
     longMatchName2: "Bangalore",
     matchImageUrl2:
       "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RCB1@2x.png",
-    time: "05/10/2023 14:00:00",
+    time: "05/14/2023 14:00:00",
   },
 ];
 
@@ -206,7 +206,6 @@ const UpcomingScreen = () => {
                   fontWeight: "700",
                   color: "gray",
                   fontSize: 10,
-                  width: 80,
                 }}
               >
                 {calculateSeconds(item.time) !== 0 ? (

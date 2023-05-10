@@ -19,9 +19,7 @@ import { useNavigation } from "@react-navigation/native";
 import Carousel from "./Carousel";
 import Style from "../Style";
 
-const HomeScreen = () => {
-  const navigation = useNavigation();
-
+const HomeScreen = ({ navigation }) => {
   return (
     <>
       <SafeAreaView style={Style.safeArea}>

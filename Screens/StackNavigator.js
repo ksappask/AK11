@@ -8,6 +8,7 @@ import MyMatchesScreen from "./MyMatchesScreen";
 import MoreScreen from "./MyMatchesScreen";
 
 import HomeBottomTab from "./HomeBottomTab";
+import MatchScreen from "./MatchScreen";
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -22,8 +23,8 @@ const StackNavigator = () => {
         />
 
         <Stack.Screen
-          name="HomeScreen"
-          component={HomeScreen}
+          name="MatchScreen"
+          component={MatchScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
