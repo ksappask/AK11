@@ -11,7 +11,7 @@ import Header from "./Header";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 
 import Style from "../Style";
-import MatchHeader from "./MatchHeader";
+import SecondHeader from "./SecondHeader";
 import MyMatchesScreen from "./MyMatchesScreen";
 
 const Tab = createMaterialTopTabNavigator();
@@ -19,8 +19,8 @@ const Tab = createMaterialTopTabNavigator();
 const MatchScreen = () => {
   return (
     <>
-      <View>
-        <MatchHeader />
+      <View style={Style.safeArea}>
+        <SecondHeader />
       </View>
       <Tab.Navigator
         initialRouteName="Contests"

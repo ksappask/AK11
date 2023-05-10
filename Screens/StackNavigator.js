@@ -9,7 +9,8 @@ import MoreScreen from "./MyMatchesScreen";
 
 import HomeBottomTab from "./HomeBottomTab";
 import MatchScreen from "./MatchScreen";
-
+import ProfileScreen from "./ProfileScreen";
+import NotificationsScreen from "./NotificationsScreen";
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,24 @@ const StackNavigator = () => {
         <Stack.Screen
           name="MatchScreen"
           component={MatchScreen}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="ProfileScreen"
+          component={ProfileScreen}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="WalletScreen"
+          component={WalletScreen}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="NotificationsScreen"
+          component={NotificationsScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

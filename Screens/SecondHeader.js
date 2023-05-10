@@ -7,7 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 const MatchHeader = () => {
   const navigation = useNavigation();
   return (
-    <SafeAreaView style={Style.safeArea}>
+    <SafeAreaView>
       <View
         style={{
           flexDirection: "row",
@@ -15,13 +15,12 @@ const MatchHeader = () => {
           alignItems: "center",
           marginLeft: 20,
           marginRight: 20,
-          marginTop: 10,
         }}
       >
         <Pressable onPress={() => navigation.navigate("Home")}>
           <Ionicons
             name="chevron-back-circle-sharp"
-            size={30}
+            size={40}
             color="#662d91"
           />
         </Pressable>
@@ -34,11 +33,14 @@ const MatchHeader = () => {
             marginLeft: 20,
           }}
         >
-          <Pressable>
-            <Ionicons name="notifications" size={25} color="#662d91" />
+          <Pressable
+            onPress={() => navigation.navigate("WalletScreen")}
+            style={{ paddingRight: 20 }}
+          >
+            <Ionicons name="md-wallet-sharp" size={30} color="#662d91" />
           </Pressable>
-          <Pressable>
-            <Ionicons name="md-wallet-sharp" size={25} color="#662d91" />
+          <Pressable onPress={() => navigation.navigate("NotificationsScreen")}>
+            <Ionicons name="notifications" size={30} color="#662d91" />
           </Pressable>
         </View>
       </View>

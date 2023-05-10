@@ -8,7 +8,11 @@ import {
 } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+
 const Header = () => {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView>
       <View
@@ -27,7 +31,7 @@ const Header = () => {
             alignSelf: "flex-end",
           }}
         >
-          <Pressable>
+          <Pressable onPress={() => navigation.navigate("ProfileScreen")}>
             <Image
               style={{ width: 40, height: 40, borderRadius: 25 }}
               source={{
@@ -49,9 +53,6 @@ const Header = () => {
         >
           <Pressable>
             <Ionicons name="notifications" size={25} color="#662d91" />
-          </Pressable>
-          <Pressable>
-            <Ionicons name="md-wallet-sharp" size={25} color="#662d91" />
           </Pressable>
         </View>
       </View>
