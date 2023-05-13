@@ -7,9 +7,9 @@ import {
   ScrollView,
 } from "react-native";
 import React from "react";
-import SecondHeader from "./SecondHeader";
+import SecondHeader from "../Header/SecondHeader";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Style from "../Style";
+import Style from "../../Style";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";

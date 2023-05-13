@@ -3,7 +3,9 @@ import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import ProgressBar from "react-native-progress/Bar";
+import { useNavigation } from "@react-navigation/native";
 const ContestsList = () => {
+  const navigation = useNavigation();
   const contestData = [
     {
       contestType: "Head to Head",
@@ -211,6 +213,7 @@ const ContestsList = () => {
                   </Text>
                 </View>
                 <Pressable
+                  onPress={() => navigation.navigate("CreateTeamScreen")}
                   style={{
                     color: "gray",
                     fontSize: 12,

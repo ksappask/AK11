@@ -3,14 +3,15 @@ import React from "react";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./HomeScreen";
-import WalletScreen from "./WalletScreen";
-import MyMatchesScreen from "./MyMatchesScreen";
-import MoreScreen from "./MyMatchesScreen";
+import WalletScreen from "./Wallet/WalletScreen";
+import MyMatchesScreen from "./MyMatches/MyMatchesScreen";
+import MoreScreen from "./More/MoreScreen";
 
 import HomeBottomTab from "./HomeBottomTab";
-import MatchScreen from "./MatchScreen";
-import ProfileScreen from "./ProfileScreen";
-import NotificationsScreen from "./NotificationsScreen";
+import MatchScreen from "./Contest/MatchScreen";
+import ProfileScreen from "./Profile/ProfileScreen";
+import NotificationsScreen from "./Notification/NotificationsScreen";
+import CreateTeamScreen from "./Contest/CreateTeamScreen";
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
 
@@ -44,6 +45,12 @@ const StackNavigator = () => {
         <Stack.Screen
           name="NotificationsScreen"
           component={NotificationsScreen}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="CreateTeamScreen"
+          component={CreateTeamScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

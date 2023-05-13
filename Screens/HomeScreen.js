@@ -13,7 +13,7 @@ import { SafeAreaView } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MatchList from "./MatchList";
-import Header from "./Header";
+import Header from "./Header/Header";
 import SportsTab from "./SportsTab";
 import { useNavigation } from "@react-navigation/native";
 import Carousel from "./Carousel";

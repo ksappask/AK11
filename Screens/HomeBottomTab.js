@@ -1,8 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import MyMatchesScreen from "./MyMatchesScreen";
+import MyMatchesScreen from "./MyMatches/MyMatchesScreen";
 import HomeScreen from "./HomeScreen";
-import WalletScreen from "./WalletScreen";
-import MoreScreen from "./MoreScreen";
+import WalletScreen from "./Wallet/WalletScreen";
+import MoreScreen from "./More/MoreScreen";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 

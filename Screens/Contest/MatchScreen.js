@@ -6,13 +6,13 @@ import ContestsScreen from "./ContestsScreen";
 import MyContestsScreen from "./MyContestsScreen";
 import MyTeamsScreen from "./MyTeamsScreen";
 
-import Header from "./Header";
+import Header from "../Header/Header";
 
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 
-import Style from "../Style";
-import SecondHeader from "./SecondHeader";
-import MyMatchesScreen from "./MyMatchesScreen";
+import Style from "../../Style";
+import SecondHeader from "../Header/SecondHeader";
+import MyMatchesScreen from "../MyMatches/MyMatchesScreen";
 
 const Tab = createMaterialTopTabNavigator();
 

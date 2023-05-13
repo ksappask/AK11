@@ -1,13 +1,13 @@
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-import Header from "./Header";
-import SportsTab from "./SportsTab";
+import Header from "../Header/Header";
+import SportsTab from "../SportsTab";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import UpcomingScren from "./UpcomingScreen";
 import LiveScreen from "./LiveScreen";
 import CompletedScreen from "./CompletedScreen";
-import Style from "../Style";
+import Style from "../../Style";
 const Tab = createMaterialTopTabNavigator();
 
 const MyMatchesScreen = ({ navigation }) => {

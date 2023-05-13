@@ -8,11 +8,128 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import CountDown from "react-native-countdown-component";
-import MatchScreen from "./MatchScreen";
+import MatchScreen from "./Contest/MatchScreen";
 import { useNavigation } from "@react-navigation/native";
 const MatchList = ({}) => {
   const navigation = useNavigation();
   const matchInfo = [
+    {
+      title: "Rwanda T20 League",
+      lineUps: "false",
+      shortMatchName1: "RG",
+      longMatchName1: "Right Guards CC",
+      matchImageUrl1:
+        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RG@2x.png",
+      shortMatchName2: "ZCT",
+      longMatchName2: "Zonic Tigers ",
+      matchImageUrl2:
+        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
+      time: "05/20/2023 00:00:00",
+    },
+    {
+      title: "Rwanda T20 League",
+      lineUps: "false",
+      shortMatchName1: "RG",
+      longMatchName1: "Right Guards CC",
+      matchImageUrl1:
+        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RG@2x.png",
+      shortMatchName2: "ZCT",
+      longMatchName2: "Zonic Tigers ",
+      matchImageUrl2:
+        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
+      time: "05/20/2023 00:00:00",
+    },
+    {
+      title: "Rwanda T20 League",
+      lineUps: "false",
+      shortMatchName1: "RG",
+      longMatchName1: "Right Guards CC",
+      matchImageUrl1:
+        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RG@2x.png",
+      shortMatchName2: "ZCT",
+      longMatchName2: "Zonic Tigers ",
+      matchImageUrl2:
+        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
+      time: "05/20/2023 00:00:00",
+    },
+    {
+      title: "Rwanda T20 League",
+      lineUps: "false",
+      shortMatchName1: "RG",
+      longMatchName1: "Right Guards CC",
+      matchImageUrl1:
+        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RG@2x.png",
+      shortMatchName2: "ZCT",
+      longMatchName2: "Zonic Tigers ",
+      matchImageUrl2:
+        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
+      time: "05/20/2023 00:00:00",
+    },
+    {
+      title: "Rwanda T20 League",
+      lineUps: "false",
+      shortMatchName1: "RG",
+      longMatchName1: "Right Guards CC",
+      matchImageUrl1:
+        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RG@2x.png",
+      shortMatchName2: "ZCT",
+      longMatchName2: "Zonic Tigers ",
+      matchImageUrl2:
+        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
+      time: "05/20/2023 00:00:00",
+    },
+    {
+      title: "Rwanda T20 League",
+      lineUps: "false",
+      shortMatchName1: "RG",
+      longMatchName1: "Right Guards CC",
+      matchImageUrl1:
+        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RG@2x.png",
+      shortMatchName2: "ZCT",
+      longMatchName2: "Zonic Tigers ",
+      matchImageUrl2:
+        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
+      time: "05/20/2023 00:00:00",
+    },
+    {
+      title: "Rwanda T20 League",
+      lineUps: "false",
+      shortMatchName1: "RG",
+      longMatchName1: "Right Guards CC",
+      matchImageUrl1:
+        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RG@2x.png",
+      shortMatchName2: "ZCT",
+      longMatchName2: "Zonic Tigers ",
+      matchImageUrl2:
+        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
+      time: "05/20/2023 00:00:00",
+    },
+    {
+      title: "Rwanda T20 League",
+      lineUps: "false",
+      shortMatchName1: "RG",
+      longMatchName1: "Right Guards CC",
+      matchImageUrl1:
+        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RG@2x.png",
+      shortMatchName2: "ZCT",
+      longMatchName2: "Zonic Tigers ",
+      matchImageUrl2:
+        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
+      time: "05/20/2023 00:00:00",
+    },
+    {
+      title: "Rwanda T20 League",
+      lineUps: "false",
+      shortMatchName1: "RG",
+      longMatchName1: "Right Guards CC",
+      matchImageUrl1:
+        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RG@2x.png",
+      shortMatchName2: "ZCT",
+      longMatchName2: "Zonic Tigers ",
+      matchImageUrl2:
+        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
+      time: "05/20/2023 00:00:00",
+    },
     {
       title: "Rwanda T20 League",
       lineUps: "false",
