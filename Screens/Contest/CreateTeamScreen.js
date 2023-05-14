@@ -13,7 +13,7 @@ import Style from "../../Style";
 import { Ionicons } from "@expo/vector-icons";
 import ProgressBar from "react-native-progress/Bar";
 import ElevenProgressBar from "./ElevenProgressBar";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PlayerList from "./PlayerList";
 import { useNavigation } from "@react-navigation/native";
 
@@ -21,31 +21,34 @@ const CreateTeamScreen = () => {
   const [team1Count, setTeam1Count] = useState(0);
   const [team2Count, setTeam2Count] = useState(0);
   const [totalCreditsAvailable, setTotalCreditsAvailable] = useState(100);
-  const [playerSelectedCount, setPlayerSelectedCount] = useState(0);
-  const [wicketKeeperCount, setwicketKeeperCount] = useState(0);
-  const [batsmanCount, setbatsmanCount] = useState(0);
 
-  const [allRounderCount, setallRounderCount] = useState(0);
-  const [bowlerCount, setbowlerCount] = useState(0);
+  const dispatch = useDispatch();
+  const wicketKeeper = useSelector((state) => state.createTeam.wicketKeeper);
+  const batsman = useSelector((state) => state.createTeam.batsman);
+  const allRounder = useSelector((state) => state.createTeam.allRounder);
+  const bowler = useSelector((state) => state.createTeam.bowler);
+
+  const playerSelectedCount =
+    wicketKeeper.length + batsman.length + allRounder.length + bowler.length;
   const [selectedRole, setSelectedRole] = useState("wicketKeeper");
 
   const navigation = useNavigation();
   const matchData = [
     {
       pitch: "Batting",
-      good_for: "Pace",
-      avg_score: "161",
-      stadium: "Rajiv Gandhi International Stadium, Hyderabad",
+      good_for: "Spin",
+      avg_score: "148",
+      stadium: "M A Chidambaram Stadium, Chennai",
     },
   ];
   const data = [
     {
-      teamName1: "ACT",
+      teamName1: "CSK",
       teamUrl1:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-LSG1@2x.png",
-      teamName2: "ADD",
+        "https://ssl.gstatic.com/onebox/media/sports/logos/exZiFUT_GXScTyr358t7SQ_96x96.png",
+      teamName2: "KOL",
       teamUrl2:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RCB1@2x.png",
+        "https://ssl.gstatic.com/onebox/media/sports/logos/kkwGQB9t8WtGPx9WuiBGOw_96x96.png",
     },
   ];
   const playerData = [
@@ -191,7 +194,7 @@ const CreateTeamScreen = () => {
                   : styles.roleInActive
               }
             >
-              <Text>WK ({wicketKeeperCount})</Text>
+              <Text>WK ({wicketKeeper.length})</Text>
             </Pressable>
             <Pressable
               onPress={() => setSelectedRole("batsman")}
@@ -201,7 +204,7 @@ const CreateTeamScreen = () => {
                   : styles.roleInActive
               }
             >
-              <Text>BAT ({batsmanCount})</Text>
+              <Text>BAT ({batsman.length})</Text>
             </Pressable>
             <Pressable
               onPress={() => setSelectedRole("allRounder")}
@@ -211,7 +214,7 @@ const CreateTeamScreen = () => {
                   : styles.roleInActive
               }
             >
-              <Text>AR ({allRounderCount})</Text>
+              <Text>AR ({allRounder.length})</Text>
             </Pressable>
             <Pressable
               onPress={() => setSelectedRole("bowler")}
@@ -221,7 +224,7 @@ const CreateTeamScreen = () => {
                   : styles.roleInActive
               }
             >
-              <Text>BOWL ({bowlerCount})</Text>
+              <Text>BOWL ({bowler.length})</Text>
             </Pressable>
           </View>
 

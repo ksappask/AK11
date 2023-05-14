@@ -8,9 +8,73 @@ import {
 } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addPlayer,
+  clearAll,
+  addInitialPlayer,
+  initialPlayersList,
+  removePlayer,
+} from "../Slices/CreateTeamSlice";
+import { useState } from "react";
 
-const ScrollPlayerList = (props) => {
-  let playerData = props.playerData;
+const ScrollPlayerList = ({ playerData, selectedRole }) => {
+  const dispatch = useDispatch();
+  const wicketKeeper = useSelector((state) => state.createTeam.wicketKeeper);
+  const batsman = useSelector((state) => state.createTeam.batsman);
+  const allRounder = useSelector((state) => state.createTeam.allRounder);
+  const bowler = useSelector((state) => state.createTeam.bowler);
+  const totalPlayersSelected =
+    wicketKeeper.length + batsman.length + allRounder.length + bowler.length;
+
+  const playerBucket = useSelector((state) => state.createTeam.playerBucket);
+  const initialPlayerList = useSelector(
+    (state) => state.createTeam.initialPlayersList
+  );
+
+  const checkValidation = (type) => {
+    if (totalPlayersSelected > 11) {
+      return false;
+    }
+
+    if (
+      type === "wicketKeeper" &&
+      wicketKeeper.length >= 0 &&
+      wicketKeeper.length < 4 &&
+      totalPlayersSelected <= 11
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const removePlayerFunc = (item) => {};
+
+  const addPlayerFunc = (item, type) => {
+    if (selectedRole === "wicketKeeper" && type === "add") {
+      let res = checkValidation("wicketKeeper");
+      if (res === true) {
+        dispatch(
+          addPlayer({
+            type: "wicketKeeper",
+            data: item,
+          })
+        );
+      }
+      if (selectedRole === "wicketKeeper" && type === "remove") {
+        dispatch(
+          removePlayer({
+            type: "wicketKeeper",
+            data: item,
+          })
+        );
+      }
+    }
+
+    //dispatch(clearAll());
+  };
+
   return (
     <>
       {playerData.map((item, index) => (
@@ -42,19 +106,38 @@ const ScrollPlayerList = (props) => {
             <Text>{item.teamName}</Text>
           </View>
 
-          <View style={{ marginLeft: "5%", width: "25%" }}>
-            <Text>{item.name}</Text>
-            <Text>{item.selectedBy}</Text>
+          <View style={{ marginLeft: "5%", width: "28%" }}>
+            <Text style={{ paddingBottom: 5 }}>{item.name}</Text>
+            <Text style={{ fontSize: 13, paddingBottom: 5 }}>
+              Sel By {item.selectedBy} %
+            </Text>
+            {item.playedLastMatch === "yes" ? (
+              <Text style={{ fontSize: 10 }}>Played Last Match</Text>
+            ) : null}
           </View>
 
-          <View style={{ marginLeft: "15%", width: "5%" }}>
+          <View style={{ marginLeft: "15%", width: "15%" }}>
             <Text>{item.points}</Text>
           </View>
-          <View style={{ marginLeft: "15%", width: "10%" }}>
+          <View style={{ marginLeft: "10%", width: "10%" }}>
             <Text>{item.credits}</Text>
           </View>
-          <Pressable style={{ marginLeft: "5%", width: "10%" }}>
-            <AntDesign name="plussquareo" size={24} color="#662d91" />
+          <Pressable
+            onPress={() => addPlayerFunc(item, "add")}
+            style={{ marginLeft: "1%", width: "10%" }}
+          >
+            {initialPlayerList.includes(item.name) === true ? (
+              <AntDesign name="plussquareo" size={24} color="#662d91" />
+            ) : null}
+          </Pressable>
+
+          <Pressable
+            onPress={() => removePlayerFunc(item, "remove")}
+            style={{ marginLeft: "1%", width: "10%" }}
+          >
+            {playerBucket.includes(item.name) ? (
+              <AntDesign name="minussquareo" size={24} color="#662d91" />
+            ) : null}
           </Pressable>
         </Pressable>
       ))}
