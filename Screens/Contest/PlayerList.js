@@ -26,6 +26,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "689",
           credits: "9.0",
+          selected: false,
         },
         {
           name: "R Gurbaz",
@@ -36,6 +37,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "403",
           credits: "8.0",
+          selected: false,
         },
         {
           name: "M Dhoni",
@@ -46,6 +48,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "275",
           credits: "7.5",
+          selected: false,
         },
         {
           name: "J Charles",
@@ -56,6 +59,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "0",
           credits: "6.5",
+          selected: false,
         },
         {
           name: "N Jagadeesan",
@@ -66,6 +70,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "145",
           credits: "6.0",
+          selected: false,
         },
       ],
       batsman: [
@@ -78,6 +83,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "627",
           credits: "9.0",
+          selected: false,
         },
         {
           name: "R Gaikwad",
@@ -88,6 +94,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "691",
           credits: "9.0",
+          selected: false,
         },
         {
           name: "A Rahane",
@@ -98,6 +105,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "445",
           credits: "8.5",
+          selected: false,
         },
         {
           name: "V Iyer",
@@ -108,6 +116,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "546",
           credits: "8.5",
+          selected: false,
         },
         {
           name: "J Roy",
@@ -118,6 +127,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "350",
           credits: "8.0",
+          selected: false,
         },
         {
           name: "R Singh",
@@ -128,6 +138,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "574",
           credits: "8.0",
+          selected: false,
         },
         {
           name: "S Dube",
@@ -138,6 +149,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "528",
           credits: "8.0",
+          selected: false,
         },
         {
           name: "A Rayudu",
@@ -148,6 +160,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "196",
           credits: "7.0",
+          selected: false,
         },
         {
           name: "Mandeep Singh",
@@ -158,6 +171,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "26",
           credits: "6.0",
+          selected: false,
         },
         {
           name: "S Senapati",
@@ -168,6 +182,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "0",
           credits: "5.5%",
+          selected: false,
         },
         {
           name: "S Rasheed",
@@ -178,6 +193,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "0",
           credits: "5.0",
+          selected: false,
         },
       ],
 
@@ -191,6 +207,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "671",
           credits: "9.0",
+          selected: false,
         },
         {
           name: "A Russel",
@@ -201,6 +218,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "584",
           credits: "8.5",
+          selected: false,
         },
         {
           name: "M Ali",
@@ -211,6 +229,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "405",
           credits: "8.5",
+          selected: false,
         },
         {
           name: "B Stokes",
@@ -221,6 +240,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "41",
           credits: "8.0",
+          selected: false,
         },
         {
           name: "S Narine",
@@ -231,6 +251,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "257",
           credits: "7.5",
+          selected: false,
         },
         {
           name: "D Wiese",
@@ -241,6 +262,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "49",
           credits: "7.0",
+          selected: false,
         },
         {
           name: "S Thakur",
@@ -251,6 +273,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "275",
           credits: "7.0",
+          selected: false,
         },
         {
           name: "M Santner",
@@ -261,6 +284,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "111",
           credits: "7.0",
+          selected: false,
         },
         {
           name: "D Pretorious",
@@ -271,6 +295,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "14",
           credits: "6.5",
+          selected: false,
         },
         {
           name: "A Sudhakar Roy",
@@ -281,6 +306,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "145",
           credits: "6.5",
+          selected: false,
         },
         {
           name: "A Mandal",
@@ -291,6 +317,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "0",
           credits: "5.0",
+          selected: false,
         },
         {
           name: "N Sindhu",
@@ -301,6 +328,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "0",
           credits: "5.0",
+          selected: false,
         },
         {
           name: "A Desai",
@@ -310,6 +338,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "0",
           credits: "4.5",
+          selected: false,
         },
       ],
       bowler: [
@@ -322,6 +351,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "529",
           credits: "8.5",
+          selected: false,
         },
         {
           name: "V Chakravarthy",
@@ -332,6 +362,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "604",
           credits: "8.5",
+          selected: false,
         },
         {
           name: "L Ferguson",
@@ -342,6 +373,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "29",
           credits: "8.0",
+          selected: false,
         },
         {
           name: "M Theekshana",
@@ -352,6 +384,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "197",
           credits: "8.0",
+          selected: false,
         },
         {
           name: "T Southee",
@@ -362,6 +395,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "46",
           credits: "7.5",
+          selected: false,
         },
         {
           name: "D Chahar",
@@ -372,6 +406,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "117",
           credits: "7.5",
+          selected: false,
         },
         {
           name: "U Yadav",
@@ -382,6 +417,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "93",
           credits: "7.0",
+          selected: false,
         },
         {
           name: "M Pathirana",
@@ -392,6 +428,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "365",
           credits: "7.0",
+          selected: false,
         },
         {
           name: "S Sharma",
@@ -402,6 +439,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "330",
           credits: "7.0",
+          selected: false,
         },
         {
           name: "A Singh",
@@ -412,6 +450,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "161",
           credits: "6.5",
+          selected: false,
         },
         {
           name: "S Magala",
@@ -422,6 +461,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "43",
           credits: "6.0",
+          selected: false,
         },
         {
           name: "V Arora",
@@ -432,6 +472,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "74",
           credits: "6.0",
+          selected: false,
         },
         {
           name: "H Rana",
@@ -442,6 +483,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "130",
           credits: "6.0",
+          selected: false,
         },
         {
           name: "S Singh",
@@ -452,6 +494,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "0",
           credits: "5.5",
+          selected: false,
         },
         {
           name: "R Hangargekar",
@@ -462,6 +505,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "83",
           credits: "5.5",
+          selected: false,
         },
         {
           name: "K Khejroliya",
@@ -472,6 +516,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "52",
           credits: "5.0",
+          selected: false,
         },
         {
           name: "P Solanki",
@@ -482,6 +527,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "0",
           credits: "5.0",
+          selected: false,
         },
         {
           name: "B Varma",
@@ -492,6 +538,7 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "0",
           credits: "4.5",
+          selected: false,
         },
       ],
     },

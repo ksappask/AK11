@@ -24,7 +24,7 @@ const MatchList = ({}) => {
       longMatchName2: "Zonic Tigers ",
       matchImageUrl2:
         "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "05/20/2023 00:00:00",
+      time: "05/31/2023 00:00:00",
     },
     {
       title: "Rwanda T20 League",
@@ -37,7 +37,7 @@ const MatchList = ({}) => {
       longMatchName2: "Zonic Tigers ",
       matchImageUrl2:
         "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "05/20/2023 00:00:00",
+      time: "05/31/2023 00:00:00",
     },
     {
       title: "Rwanda T20 League",
@@ -50,7 +50,7 @@ const MatchList = ({}) => {
       longMatchName2: "Zonic Tigers ",
       matchImageUrl2:
         "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "05/20/2023 00:00:00",
+      time: "05/31/2023 00:00:00",
     },
     {
       title: "Rwanda T20 League",
@@ -63,7 +63,7 @@ const MatchList = ({}) => {
       longMatchName2: "Zonic Tigers ",
       matchImageUrl2:
         "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "05/20/2023 00:00:00",
+      time: "05/22/2023 00:00:00",
     },
     {
       title: "Rwanda T20 League",
@@ -76,7 +76,7 @@ const MatchList = ({}) => {
       longMatchName2: "Zonic Tigers ",
       matchImageUrl2:
         "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "05/20/2023 00:00:00",
+      time: "05/31/2023 00:00:00",
     },
     {
       title: "Rwanda T20 League",
@@ -89,7 +89,7 @@ const MatchList = ({}) => {
       longMatchName2: "Zonic Tigers ",
       matchImageUrl2:
         "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "05/20/2023 00:00:00",
+      time: "05/31/2023 00:00:00",
     },
     {
       title: "Rwanda T20 League",
@@ -102,7 +102,7 @@ const MatchList = ({}) => {
       longMatchName2: "Zonic Tigers ",
       matchImageUrl2:
         "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "05/20/2023 00:00:00",
+      time: "05/31/2023 00:00:00",
     },
     {
       title: "Rwanda T20 League",
@@ -115,7 +115,7 @@ const MatchList = ({}) => {
       longMatchName2: "Zonic Tigers ",
       matchImageUrl2:
         "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "05/20/2023 00:00:00",
+      time: "05/31/2023 00:00:00",
     },
     {
       title: "Rwanda T20 League",
@@ -128,7 +128,7 @@ const MatchList = ({}) => {
       longMatchName2: "Zonic Tigers ",
       matchImageUrl2:
         "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "05/20/2023 00:00:00",
+      time: "05/31/2023 00:00:00",
     },
     {
       title: "Rwanda T20 League",
@@ -141,7 +141,7 @@ const MatchList = ({}) => {
       longMatchName2: "Zonic Tigers ",
       matchImageUrl2:
         "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "05/20/2023 00:00:00",
+      time: "05/31/2023 00:00:00",
     },
     {
       title: "Indian T20 League",
@@ -154,7 +154,7 @@ const MatchList = ({}) => {
       longMatchName2: "Bangalore",
       matchImageUrl2:
         "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RCB1@2x.png",
-      time: "05/18/2023 07:30:00",
+      time: "05/31/2023 07:30:00",
     },
     {
       title: "Indian T20 League",
@@ -167,7 +167,7 @@ const MatchList = ({}) => {
       longMatchName2: "Bangalore",
       matchImageUrl2:
         "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RCB1@2x.png",
-      time: "05/15/2023 10:00:00",
+      time: "05/31/2023 10:00:00",
     },
     {
       title: "Indian T20 League",
@@ -180,7 +180,7 @@ const MatchList = ({}) => {
       longMatchName2: "Bangalore",
       matchImageUrl2:
         "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RCB1@2x.png",
-      time: "05/18/2023 14:00:00",
+      time: "05/31/2023 14:00:00",
     },
   ];
 

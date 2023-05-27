@@ -8,7 +8,6 @@ export const CreateTeamSlice = createSlice({
     allRounder: [],
     bowler: [],
 
-    playerBucket: [],
     initialPlayersList: [],
   },
 
@@ -16,42 +15,24 @@ export const CreateTeamSlice = createSlice({
     addPlayer: (state, action) => {
       if (action.payload.type === "wicketKeeper") {
         state.wicketKeeper.push(action.payload.data);
-        state.playerBucket.push(action.payload.data.name);
+
         state.initialPlayersList = state.initialPlayersList.filter(
           (x) => x !== action.payload.data.name
         );
       }
-      if (action.payload.type === "batsman") {
-        state.batsman.push(action.payload.data);
-        state.playerBucket.push(action.payload.data.name);
-      }
-      if (action.payload.type === "allRounder") {
-        state.allRounder.push(action.payload.data);
-        state.playerBucket.push(action.payload.data.name);
-      }
-      if (action.payload.type === "bowler") {
-        state.bowler.push(action.payload.data);
-        state.playerBucket.push(action.payload.data.name);
-      }
-      console.log(state.wicketKeeper);
-      console.log(state.playerBucket);
-      console.log(state.initialPlayersList);
+
+      //console.log(state.wicketKeeper);
     },
     removePlayer: (state, action) => {
       if (action.payload.type === "wicketKeeper") {
         state.wicketKeeper = state.wicketKeeper.filter(
           (x) => x !== action.payload.data
         );
-        state.playerBucket = state.playerBucket.filter(
-          (x) => x !== action.payload.data.name
-        );
 
         state.initialPlayersList.push(action.payload.data);
       }
 
-      console.log(state.wicketKeeper);
-      console.log(state.playerBucket);
-      console.log(state.initialPlayersList);
+      //console.log(state.wicketKeeper);
     },
 
     addInitialPlayer: (state, action) => {
@@ -73,7 +54,7 @@ export const CreateTeamSlice = createSlice({
       state.batsman = [];
       state.allRounder = [];
       state.bowler = [];
-      state.playerBucket = [];
+
       state.initialPlayersList = [];
     },
   },

@@ -16,6 +16,7 @@ import ElevenProgressBar from "./ElevenProgressBar";
 import { useDispatch, useSelector } from "react-redux";
 import PlayerList from "./PlayerList";
 import { useNavigation } from "@react-navigation/native";
+import { clearAll } from "../Slices/CreateTeamSlice";
 
 const CreateTeamScreen = () => {
   const [team1Count, setTeam1Count] = useState(0);
@@ -277,6 +278,7 @@ const CreateTeamScreen = () => {
                 width: "25%",
                 position: "relative",
               }}
+              onPress={() => dispatch(clearAll())}
             >
               <Text style={{ color: "white", textAlign: "center" }}>
                 Next Step
