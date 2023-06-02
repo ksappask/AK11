@@ -7,20 +7,43 @@ export const CreateTeamSlice = createSlice({
     batsman: [],
     allRounder: [],
     bowler: [],
-
+    playerData: [],
     initialPlayersList: [],
   },
 
   reducers: {
     addPlayer: (state, action) => {
       if (action.payload.type === "wicketKeeper") {
-        state.wicketKeeper.push(action.payload.data);
-
-        state.initialPlayersList = state.initialPlayersList.filter(
-          (x) => x !== action.payload.data.name
+        const index = state.initialPlayersList[0].wicketKeeper.findIndex(
+          (player) => player.name === action.payload.data.name
         );
+        const newArray = [...state.initialPlayersList];
+        console.log(newArray[0].wicketKeeper[index].name);
+
+        newArray[0].wicketKeeper[index].selected = true;
+        state.initialPlayersList = newArray;
+        console.log(
+          "***** After Store WicketKeeper: ***********",
+          state.initialPlayersList[0]
+        );
+        //  state.wicketKeeper.push(action.payload.data);
       }
 
+      if (action.payload.type === "batsman") {
+        const index = state.initialPlayersList[0].batsman.findIndex(
+          (player) => player.name === action.payload.data.name
+        );
+        const newArray = [...state.initialPlayersList];
+        console.log(newArray[0].batsman[index].name);
+
+        newArray[0].batsman[index].selected = true;
+        state.initialPlayersList = newArray;
+        console.log(
+          "***** After Store  Batsman: ***********",
+          state.initialPlayersList[0]
+        );
+        //  state.wicketKeeper.push(action.payload.data);
+      }
       //console.log(state.wicketKeeper);
     },
     removePlayer: (state, action) => {
@@ -37,17 +60,12 @@ export const CreateTeamSlice = createSlice({
 
     addInitialPlayer: (state, action) => {
       //console.log(action.payload);
-      state.initialPlayersList = [];
+      state.initialPlayersList = action.payload;
+      //state.initialPlayersList.push(action.payload[0].wicketKeeper);
+      //state.initialPlayersList.push(action.payload[0].batsman);
 
-      let wk = action.payload[0].wicketKeeper;
-      let bat = action.payload[0].batsman;
-      let aR = action.payload[0].allRounder;
-      let bowl = action.payload[0].bowler;
-
-      wk.map((item) => state.initialPlayersList.push(item.name));
-      bat.map((item) => state.initialPlayersList.push(item.name));
-      aR.map((item) => state.initialPlayersList.push(item.name));
-      bowl.map((item) => state.initialPlayersList.push(item.name));
+      //state.initialPlayersList.push(action.payload[0].allRounder);
+      //state.initialPlayersList.push(action.payload[0].bowler);
     },
     clearAll: (state, action) => {
       state.wicketKeeper = [];
