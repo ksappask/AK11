@@ -195,9 +195,9 @@ const MatchList = ({}) => {
     );
 
     var diff = (currentTime.getTime() - endTime.getTime()) / 1000;
-    console.log("\n\nCurrent Date : " + currentTime);
-    console.log("End Date : " + endTime);
-    console.log("Seconds : " + diff);
+    // console.log("\n\nCurrent Date : " + currentTime);
+    // console.log("End Date : " + endTime);
+    //console.log("Seconds : " + diff);
 
     if (diff < 0) {
       return Math.abs(diff);

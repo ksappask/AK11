@@ -29,8 +29,9 @@ const CreateTeamScreen = () => {
   const allRounder = useSelector((state) => state.createTeam.allRounder);
   const bowler = useSelector((state) => state.createTeam.bowler);
 
-  const playerSelectedCount =
-    wicketKeeper.length + batsman.length + allRounder.length + bowler.length;
+  const playerSelectedCount = useSelector(
+    (state) => state.createTeam.playerCount
+  );
   const [selectedRole, setSelectedRole] = useState("wicketKeeper");
 
   const navigation = useNavigation();

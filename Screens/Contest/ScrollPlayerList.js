@@ -29,7 +29,7 @@ const ScrollPlayerList = ({ playerData, selectedRole }) => {
     wicketKeeper.length + batsman.length + allRounder.length + bowler.length;
   const playerBucket = useSelector((state) => state.createTeam.playerBucket);
 
-  const initialPlayerList = useSelector(
+  /*const initialPlayerList = useSelector(
     (state) => state.createTeam.initialPlayersList
   );
 
@@ -37,7 +37,7 @@ const ScrollPlayerList = ({ playerData, selectedRole }) => {
 
   useEffect(() => {
     setPlayerDataState(initialPlayerList);
-  }, [initialPlayerList]);
+  }, [initialPlayerList]);*/
 
   const checkValidation = (type) => {
     if (type === "wicketKeeper") {
@@ -57,7 +57,7 @@ const ScrollPlayerList = ({ playerData, selectedRole }) => {
   };
 
   const addPlayerFunc = (item, type, index) => {
-    if (selectedRole === "wicketKeeper" && type === "add") {
+    if (item.type === "wicketKeeper" && type === "add") {
       let res = true;
       if (res === true) {
         dispatch(
@@ -71,7 +71,7 @@ const ScrollPlayerList = ({ playerData, selectedRole }) => {
       }
     }
 
-    if (selectedRole === "batsman" && type === "add") {
+    if (item.type === "batsman" && type === "add") {
       let res = true;
       if (res === true) {
         dispatch(
@@ -84,7 +84,7 @@ const ScrollPlayerList = ({ playerData, selectedRole }) => {
         );
       }
     }
-    if (selectedRole === "allRounder" && type === "add") {
+    if (item.type === "allRounder" && type === "add") {
       let res = true;
       if (res === true) {
         dispatch(
@@ -97,7 +97,7 @@ const ScrollPlayerList = ({ playerData, selectedRole }) => {
         );
       }
     }
-    if (selectedRole === "bowler" && type === "add") {
+    if (item.type === "bowler" && type === "add") {
       let res = true;
       if (res === true) {
         dispatch(
@@ -110,8 +110,8 @@ const ScrollPlayerList = ({ playerData, selectedRole }) => {
         );
       }
     }
-    //dispatch(clearAll());
   };
+  //dispatch(clearAll());
 
   return (
     <>

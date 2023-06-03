@@ -5,11 +5,22 @@ import {
   StyleSheet,
   Text,
   View,
+  Pressable,
 } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 import React from "react";
 import ScrollPlayerList from "./ScrollPlayerList";
-import { addInitialPlayer, clearAll } from "../Slices/CreateTeamSlice";
-import { useDispatch } from "react-redux";
+
+import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+
+import {
+  addPlayer,
+  clearAll,
+  addInitialPlayer,
+  initialPlayersList,
+  removePlayer,
+} from "../Slices/CreateTeamSlice";
 
 const PlayerList = ({ selectedRole }) => {
   const dispatch = useDispatch();
@@ -18,6 +29,7 @@ const PlayerList = ({ selectedRole }) => {
     {
       wicketKeeper: [
         {
+          id: "CSK1",
           name: "D Conway",
           teamName: "CSK",
           playerImageUrl:
@@ -27,8 +39,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "689",
           credits: "9.0",
           selected: false,
+          type: "wicketKeeper",
         },
         {
+          id: "KOL1",
           name: "R Gurbaz",
           teamName: "KOL",
           playerImageUrl:
@@ -38,8 +52,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "403",
           credits: "8.0",
           selected: false,
+          type: "wicketKeeper",
         },
         {
+          id: "CSK2",
           name: "M Dhoni",
           teamName: "CSK",
           playerImageUrl:
@@ -49,8 +65,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "275",
           credits: "7.5",
           selected: false,
+          type: "wicketKeeper",
         },
         {
+          id: "KOL2",
           name: "J Charles",
           teamName: "KOL",
           playerImageUrl:
@@ -60,8 +78,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "0",
           credits: "6.5",
           selected: false,
+          type: "wicketKeeper",
         },
         {
+          id: "KOL3",
           name: "N Jagadeesan",
           teamName: "KOL",
           playerImageUrl:
@@ -71,10 +91,12 @@ const PlayerList = ({ selectedRole }) => {
           points: "145",
           credits: "6.0",
           selected: false,
+          type: "wicketKeeper",
         },
       ],
       batsman: [
         {
+          id: "KOL4",
           name: "N Rana",
           teamName: "KOL",
           playerImageUrl:
@@ -84,8 +106,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "627",
           credits: "9.0",
           selected: false,
+          type: "batsman",
         },
         {
+          id: "CSK3",
           name: "R Gaikwad",
           teamName: "CSK",
           playerImageUrl:
@@ -95,8 +119,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "691",
           credits: "9.0",
           selected: false,
+          type: "batsman",
         },
         {
+          id: "CSK4",
           name: "A Rahane",
           teamName: "CSK",
           playerImageUrl:
@@ -106,8 +132,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "445",
           credits: "8.5",
           selected: false,
+          type: "batsman",
         },
         {
+          id: "KOL5",
           name: "V Iyer",
           teamName: "KOL",
           playerImageUrl:
@@ -117,8 +145,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "546",
           credits: "8.5",
           selected: false,
+          type: "batsman",
         },
         {
+          id: "KOL6",
           name: "J Roy",
           teamName: "KOL",
           playerImageUrl:
@@ -128,8 +158,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "350",
           credits: "8.0",
           selected: false,
+          type: "batsman",
         },
         {
+          id: "KOL7",
           name: "R Singh",
           teamName: "KOL",
           playerImageUrl:
@@ -139,8 +171,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "574",
           credits: "8.0",
           selected: false,
+          type: "batsman",
         },
         {
+          id: "CSK5",
           name: "S Dube",
           teamName: "CSK",
           playerImageUrl:
@@ -150,8 +184,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "528",
           credits: "8.0",
           selected: false,
+          type: "batsman",
         },
         {
+          id: "CSK26",
           name: "A Rayudu",
           teamName: "CSK",
           playerImageUrl:
@@ -161,8 +197,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "196",
           credits: "7.0",
           selected: false,
+          type: "batsman",
         },
         {
+          id: "KOL8",
           name: "Mandeep Singh",
           teamName: "KOL",
           playerImageUrl:
@@ -172,8 +210,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "26",
           credits: "6.0",
           selected: false,
+          type: "batsman",
         },
         {
+          id: "CSK6",
           name: "S Senapati",
           teamName: "CSK",
           playerImageUrl:
@@ -183,8 +223,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "0",
           credits: "5.5%",
           selected: false,
+          type: "batsman",
         },
         {
+          id: "CSK7",
           name: "S Rasheed",
           teamName: "CSK",
           playerImageUrl:
@@ -194,11 +236,13 @@ const PlayerList = ({ selectedRole }) => {
           points: "0",
           credits: "5.0",
           selected: false,
+          type: "batsman",
         },
       ],
 
       allRounder: [
         {
+          id: "CSK8",
           name: "R Jadeja",
           teamName: "CSK",
           playerImageUrl:
@@ -208,8 +252,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "671",
           credits: "9.0",
           selected: false,
+          type: "allRounder",
         },
         {
+          id: "KOL9",
           name: "A Russel",
           teamName: "KOL",
           playerImageUrl:
@@ -219,8 +265,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "584",
           credits: "8.5",
           selected: false,
+          type: "allRounder",
         },
         {
+          id: "CSK9",
           name: "M Ali",
           teamName: "CSK",
           playerImageUrl:
@@ -230,8 +278,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "405",
           credits: "8.5",
           selected: false,
+          type: "allRounder",
         },
         {
+          id: "CSK10",
           name: "B Stokes",
           teamName: "CSK",
           playerImageUrl:
@@ -241,8 +291,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "41",
           credits: "8.0",
           selected: false,
+          type: "allRounder",
         },
         {
+          id: "KOL10",
           name: "S Narine",
           teamName: "KOL",
           playerImageUrl:
@@ -252,8 +304,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "257",
           credits: "7.5",
           selected: false,
+          type: "allRounder",
         },
         {
+          id: "KOL11",
           name: "D Wiese",
           teamName: "KOL",
           playerImageUrl:
@@ -263,8 +317,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "49",
           credits: "7.0",
           selected: false,
+          type: "allRounder",
         },
         {
+          id: "CSK11",
           name: "S Thakur",
           teamName: "KOL",
           playerImageUrl:
@@ -274,8 +330,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "275",
           credits: "7.0",
           selected: false,
+          type: "allRounder",
         },
         {
+          id: "CSK12",
           name: "M Santner",
           teamName: "CSK",
           playerImageUrl:
@@ -285,8 +343,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "111",
           credits: "7.0",
           selected: false,
+          type: "allRounder",
         },
         {
+          id: "CSK13",
           name: "D Pretorious",
           teamName: "CSK",
           playerImageUrl:
@@ -296,8 +356,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "14",
           credits: "6.5",
           selected: false,
+          type: "allRounder",
         },
         {
+          id: "KOL12",
           name: "A Sudhakar Roy",
           teamName: "KOL",
           playerImageUrl:
@@ -307,8 +369,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "145",
           credits: "6.5",
           selected: false,
+          type: "allRounder",
         },
         {
+          id: "CSK14",
           name: "A Mandal",
           teamName: "CSK",
           playerImageUrl:
@@ -318,8 +382,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "0",
           credits: "5.0",
           selected: false,
+          type: "allRounder",
         },
         {
+          id: "CSK15",
           name: "N Sindhu",
           teamName: "CSK",
           playerImageUrl:
@@ -329,8 +395,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "0",
           credits: "5.0",
           selected: false,
+          type: "allRounder",
         },
         {
+          id: "KOL13",
           name: "A Desai",
           teamName: "KOL",
           playerImageUrl: "https://i.ibb.co/njxqqhc/avatar.png",
@@ -339,10 +407,12 @@ const PlayerList = ({ selectedRole }) => {
           points: "0",
           credits: "4.5",
           selected: false,
+          type: "allRounder",
         },
       ],
       bowler: [
         {
+          id: "CSK16",
           name: "T Deshpande",
           teamName: "CSK",
           playerImageUrl:
@@ -352,8 +422,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "529",
           credits: "8.5",
           selected: false,
+          type: "bowler",
         },
         {
+          id: "KOL14",
           name: "V Chakravarthy",
           teamName: "KOL",
           playerImageUrl:
@@ -363,8 +435,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "604",
           credits: "8.5",
           selected: false,
+          type: "bowler",
         },
         {
+          id: "KOL15",
           name: "L Ferguson",
           teamName: "KOL",
           playerImageUrl:
@@ -374,8 +448,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "29",
           credits: "8.0",
           selected: false,
+          type: "bowler",
         },
         {
+          id: "CSK17",
           name: "M Theekshana",
           teamName: "CSK",
           playerImageUrl:
@@ -385,8 +461,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "197",
           credits: "8.0",
           selected: false,
+          type: "bowler",
         },
         {
+          id: "KOL16",
           name: "T Southee",
           teamName: "KOL",
           playerImageUrl:
@@ -396,8 +474,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "46",
           credits: "7.5",
           selected: false,
+          type: "bowler",
         },
         {
+          id: "CSK18",
           name: "D Chahar",
           teamName: "CSK",
           playerImageUrl:
@@ -407,8 +487,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "117",
           credits: "7.5",
           selected: false,
+          type: "bowler",
         },
         {
+          id: "KOL17",
           name: "U Yadav",
           teamName: "KOL",
           playerImageUrl:
@@ -418,8 +500,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "93",
           credits: "7.0",
           selected: false,
+          type: "bowler",
         },
         {
+          id: "CSK19",
           name: "M Pathirana",
           teamName: "CSK",
           playerImageUrl:
@@ -429,8 +513,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "365",
           credits: "7.0",
           selected: false,
+          type: "bowler",
         },
         {
+          id: "KOL18",
           name: "S Sharma",
           teamName: "KOL",
           playerImageUrl:
@@ -440,8 +526,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "330",
           credits: "7.0",
           selected: false,
+          type: "bowler",
         },
         {
+          id: "CSK20",
           name: "A Singh",
           teamName: "CSK",
           playerImageUrl:
@@ -451,8 +539,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "161",
           credits: "6.5",
           selected: false,
+          type: "bowler",
         },
         {
+          id: "CSK21",
           name: "S Magala",
           teamName: "CSK",
           playerImageUrl:
@@ -462,8 +552,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "43",
           credits: "6.0",
           selected: false,
+          type: "bowler",
         },
         {
+          id: "KOL19",
           name: "V Arora",
           teamName: "KOL",
           playerImageUrl:
@@ -473,8 +565,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "74",
           credits: "6.0",
           selected: false,
+          type: "bowler",
         },
         {
+          id: "KOL20",
           name: "H Rana",
           teamName: "KOL",
           playerImageUrl:
@@ -484,8 +578,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "130",
           credits: "6.0",
           selected: false,
+          type: "bowler",
         },
         {
+          id: "CSK22",
           name: "S Singh",
           teamName: "CSK",
           playerImageUrl:
@@ -495,8 +591,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "0",
           credits: "5.5",
           selected: false,
+          type: "bowler",
         },
         {
+          id: "CSK23",
           name: "R Hangargekar",
           teamName: "CSK",
           playerImageUrl:
@@ -506,8 +604,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "83",
           credits: "5.5",
           selected: false,
+          type: "bowler",
         },
         {
+          id: "KOL21",
           name: "K Khejroliya",
           teamName: "KOL",
           playerImageUrl:
@@ -517,8 +617,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "52",
           credits: "5.0",
           selected: false,
+          type: "bowler",
         },
         {
+          id: "CSK24",
           name: "P Solanki",
           teamName: "CSK",
           playerImageUrl:
@@ -528,8 +630,10 @@ const PlayerList = ({ selectedRole }) => {
           points: "0",
           credits: "5.0",
           selected: false,
+          type: "bowler",
         },
         {
+          id: "CSK25",
           name: "B Varma",
           teamName: "CSK",
           playerImageUrl:
@@ -539,12 +643,103 @@ const PlayerList = ({ selectedRole }) => {
           points: "0",
           credits: "4.5",
           selected: false,
+          type: "bowler",
         },
       ],
     },
   ];
   //dispatch(clearAll());
-  dispatch(addInitialPlayer(playerData));
+  const [playerUpdate, setPlayerUpdate] = useState(false);
+  if (playerUpdate === false) {
+    dispatch(addInitialPlayer(playerData));
+    setPlayerUpdate(true);
+    console.log("**********  HI AKASH ************************");
+  }
+
+  const initialPlayerList = useSelector(
+    (state) => state.createTeam.initialPlayersList
+  );
+
+  const [playerDataState, setPlayerDataState] = useState(initialPlayerList);
+
+  //console.log("** playerDataState **");
+  // console.log(initialPlayerList);
+  useEffect(() => {
+    setPlayerDataState(initialPlayerList);
+  }, [initialPlayerList]);
+
+  const checkValidation = (type) => {
+    if (type === "wicketKeeper") {
+      if (wicketKeeper.length >= 0 && wicketKeeper.length < 4) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  };
+
+  const removePlayerFunc = (item, type) => {
+    if (selectedRole === "wicketKeeper" && type === "remove") {
+    }
+  };
+
+  const addPlayerFunc = (item, type, index) => {
+    if (selectedRole === "wicketKeeper" && type === "add") {
+      let res = true;
+      if (res === true) {
+        dispatch(
+          addPlayer({
+            type: "wicketKeeper",
+            data: item,
+            index: index,
+            playerData: initialPlayerList,
+          })
+        );
+      }
+    }
+
+    if (selectedRole === "batsman" && type === "add") {
+      let res = true;
+      if (res === true) {
+        dispatch(
+          addPlayer({
+            type: "batsman",
+            data: item,
+            index: index,
+            playerData: initialPlayerList,
+          })
+        );
+      }
+    }
+    if (selectedRole === "allRounder" && type === "add") {
+      let res = true;
+      if (res === true) {
+        dispatch(
+          addPlayer({
+            type: "allRounder",
+            data: item,
+            index: index,
+            playerData: initialPlayerList,
+          })
+        );
+      }
+    }
+    if (selectedRole === "bowler" && type === "add") {
+      let res = true;
+      if (res === true) {
+        dispatch(
+          addPlayer({
+            type: "bowler",
+            data: item,
+            index: index,
+            playerData: initialPlayerList,
+          })
+        );
+      }
+    }
+  };
 
   return (
     <View>
@@ -566,25 +761,285 @@ const PlayerList = ({ selectedRole }) => {
       <ScrollView>
         <View style={{}}>
           {selectedRole === "wicketKeeper" ? (
-            <ScrollPlayerList
-              selectedRole={selectedRole}
-              playerData={playerData[0].wicketKeeper}
-            />
+            <View>
+              {playerDataState[0].wicketKeeper.map((item, index) => (
+                <Pressable
+                  key={index}
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "flex-start",
+                    alignContent: "center",
+                    backgroundColor: "#F0F0F0",
+                    borderBottomColor: "darkgray",
+                    borderBottomWidth: 1,
+                    paddingLeft: 10,
+                    paddingRight: 10,
+                    marginTop: 5,
+                  }}
+                >
+                  <View style={{ width: "10%" }}>
+                    <Image
+                      style={{
+                        width: 50,
+                        height: 50,
+                        borderRadius: 30,
+                      }}
+                      source={{
+                        uri: item.playerImageUrl,
+                      }}
+                    ></Image>
+                    <Text>{item.teamName}</Text>
+                  </View>
+
+                  <View style={{ marginLeft: "5%", width: "28%" }}>
+                    <Text style={{ paddingBottom: 5 }}>{item.name}</Text>
+                    <Text style={{ fontSize: 13, paddingBottom: 5 }}>
+                      Sel By {item.selectedBy} %
+                    </Text>
+                    {item.playedLastMatch === "yes" ? (
+                      <Text style={{ fontSize: 10 }}>Played Last Match</Text>
+                    ) : null}
+                  </View>
+
+                  <View style={{ marginLeft: "15%", width: "15%" }}>
+                    <Text>{item.points}</Text>
+                  </View>
+                  <View style={{ marginLeft: "10%", width: "10%" }}>
+                    <Text>{item.credits}</Text>
+                  </View>
+
+                  {item.selected === false ? (
+                    <Pressable
+                      onPress={() => addPlayerFunc(item, "add", index)}
+                      style={{ marginLeft: "1%", width: "10%" }}
+                    >
+                      <AntDesign name="plussquareo" size={24} color="#662d91" />
+                    </Pressable>
+                  ) : (
+                    <Pressable
+                      onPress={() => removePlayerFunc(item, "remove", index)}
+                      style={{ marginLeft: "1%", width: "10%" }}
+                    >
+                      <AntDesign
+                        name="minussquareo"
+                        size={24}
+                        color="#662d91"
+                      />
+                    </Pressable>
+                  )}
+                </Pressable>
+              ))}
+            </View>
           ) : selectedRole === "batsman" ? (
-            <ScrollPlayerList
-              selectedRole={selectedRole}
-              playerData={playerData[0].batsman}
-            />
+            <View>
+              {playerDataState[0].batsman.map((item, index) => (
+                <Pressable
+                  key={index}
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "flex-start",
+                    alignContent: "center",
+                    backgroundColor: "#F0F0F0",
+                    borderBottomColor: "darkgray",
+                    borderBottomWidth: 1,
+                    paddingLeft: 10,
+                    paddingRight: 10,
+                    marginTop: 5,
+                  }}
+                >
+                  <View style={{ width: "10%" }}>
+                    <Image
+                      style={{
+                        width: 50,
+                        height: 50,
+                        borderRadius: 30,
+                      }}
+                      source={{
+                        uri: item.playerImageUrl,
+                      }}
+                    ></Image>
+                    <Text>{item.teamName}</Text>
+                  </View>
+
+                  <View style={{ marginLeft: "5%", width: "28%" }}>
+                    <Text style={{ paddingBottom: 5 }}>{item.name}</Text>
+                    <Text style={{ fontSize: 13, paddingBottom: 5 }}>
+                      Sel By {item.selectedBy} %
+                    </Text>
+                    {item.playedLastMatch === "yes" ? (
+                      <Text style={{ fontSize: 10 }}>Played Last Match</Text>
+                    ) : null}
+                  </View>
+
+                  <View style={{ marginLeft: "15%", width: "15%" }}>
+                    <Text>{item.points}</Text>
+                  </View>
+                  <View style={{ marginLeft: "10%", width: "10%" }}>
+                    <Text>{item.credits}</Text>
+                  </View>
+
+                  {item.selected === false ? (
+                    <Pressable
+                      onPress={() => addPlayerFunc(item, "add", index)}
+                      style={{ marginLeft: "1%", width: "10%" }}
+                    >
+                      <AntDesign name="plussquareo" size={24} color="#662d91" />
+                    </Pressable>
+                  ) : (
+                    <Pressable
+                      onPress={() => removePlayerFunc(item, "remove", index)}
+                      style={{ marginLeft: "1%", width: "10%" }}
+                    >
+                      <AntDesign
+                        name="minussquareo"
+                        size={24}
+                        color="#662d91"
+                      />
+                    </Pressable>
+                  )}
+                </Pressable>
+              ))}
+            </View>
           ) : selectedRole === "allRounder" ? (
-            <ScrollPlayerList
-              selectedRole={selectedRole}
-              playerData={playerData[0].allRounder}
-            />
+            <View>
+              {playerDataState[0].allRounder.map((item, index) => (
+                <Pressable
+                  key={index}
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "flex-start",
+                    alignContent: "center",
+                    backgroundColor: "#F0F0F0",
+                    borderBottomColor: "darkgray",
+                    borderBottomWidth: 1,
+                    paddingLeft: 10,
+                    paddingRight: 10,
+                    marginTop: 5,
+                  }}
+                >
+                  <View style={{ width: "10%" }}>
+                    <Image
+                      style={{
+                        width: 50,
+                        height: 50,
+                        borderRadius: 30,
+                      }}
+                      source={{
+                        uri: item.playerImageUrl,
+                      }}
+                    ></Image>
+                    <Text>{item.teamName}</Text>
+                  </View>
+
+                  <View style={{ marginLeft: "5%", width: "28%" }}>
+                    <Text style={{ paddingBottom: 5 }}>{item.name}</Text>
+                    <Text style={{ fontSize: 13, paddingBottom: 5 }}>
+                      Sel By {item.selectedBy} %
+                    </Text>
+                    {item.playedLastMatch === "yes" ? (
+                      <Text style={{ fontSize: 10 }}>Played Last Match</Text>
+                    ) : null}
+                  </View>
+
+                  <View style={{ marginLeft: "15%", width: "15%" }}>
+                    <Text>{item.points}</Text>
+                  </View>
+                  <View style={{ marginLeft: "10%", width: "10%" }}>
+                    <Text>{item.credits}</Text>
+                  </View>
+
+                  {item.selected === false ? (
+                    <Pressable
+                      onPress={() => addPlayerFunc(item, "add", index)}
+                      style={{ marginLeft: "1%", width: "10%" }}
+                    >
+                      <AntDesign name="plussquareo" size={24} color="#662d91" />
+                    </Pressable>
+                  ) : (
+                    <Pressable
+                      onPress={() => removePlayerFunc(item, "remove", index)}
+                      style={{ marginLeft: "1%", width: "10%" }}
+                    >
+                      <AntDesign
+                        name="minussquareo"
+                        size={24}
+                        color="#662d91"
+                      />
+                    </Pressable>
+                  )}
+                </Pressable>
+              ))}
+            </View>
           ) : selectedRole === "bowler" ? (
-            <ScrollPlayerList
-              selectedRole={selectedRole}
-              playerData={playerData[0].bowler}
-            />
+            <View>
+              {playerDataState[0].bowler.map((item, index) => (
+                <Pressable
+                  key={index}
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "flex-start",
+                    alignContent: "center",
+                    backgroundColor: "#F0F0F0",
+                    borderBottomColor: "darkgray",
+                    borderBottomWidth: 1,
+                    paddingLeft: 10,
+                    paddingRight: 10,
+                    marginTop: 5,
+                  }}
+                >
+                  <View style={{ width: "10%" }}>
+                    <Image
+                      style={{
+                        width: 50,
+                        height: 50,
+                        borderRadius: 30,
+                      }}
+                      source={{
+                        uri: item.playerImageUrl,
+                      }}
+                    ></Image>
+                    <Text>{item.teamName}</Text>
+                  </View>
+
+                  <View style={{ marginLeft: "5%", width: "28%" }}>
+                    <Text style={{ paddingBottom: 5 }}>{item.name}</Text>
+                    <Text style={{ fontSize: 13, paddingBottom: 5 }}>
+                      Sel By {item.selectedBy} %
+                    </Text>
+                    {item.playedLastMatch === "yes" ? (
+                      <Text style={{ fontSize: 10 }}>Played Last Match</Text>
+                    ) : null}
+                  </View>
+
+                  <View style={{ marginLeft: "15%", width: "15%" }}>
+                    <Text>{item.points}</Text>
+                  </View>
+                  <View style={{ marginLeft: "10%", width: "10%" }}>
+                    <Text>{item.credits}</Text>
+                  </View>
+
+                  {item.selected === false ? (
+                    <Pressable
+                      onPress={() => addPlayerFunc(item, "add", index)}
+                      style={{ marginLeft: "1%", width: "10%" }}
+                    >
+                      <AntDesign name="plussquareo" size={24} color="#662d91" />
+                    </Pressable>
+                  ) : (
+                    <Pressable
+                      onPress={() => removePlayerFunc(item, "remove", index)}
+                      style={{ marginLeft: "1%", width: "10%" }}
+                    >
+                      <AntDesign
+                        name="minussquareo"
+                        size={24}
+                        color="#662d91"
+                      />
+                    </Pressable>
+                  )}
+                </Pressable>
+              ))}
+            </View>
           ) : null}
         </View>
       </ScrollView>
