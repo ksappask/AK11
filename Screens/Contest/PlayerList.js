@@ -856,12 +856,37 @@ const PlayerList = ({ selectedRole }) => {
                 <Pressable
                   key={index}
                   style={
-                    item.isSelected === "true"
+                    item.isBlurred === "true"
                       ? {
                           flexDirection: "row",
                           justifyContent: "flex-start",
                           alignContent: "center",
                           backgroundColor: "#d9dedb",
+                          borderBottomColor: "darkgray",
+                          borderBottomWidth: 1,
+                          paddingLeft: 10,
+                          paddingRight: 10,
+                          marginTop: 5,
+                        }
+                      : item.isSelected === "true" && item.isBlurred === "false"
+                      ? {
+                          flexDirection: "row",
+                          justifyContent: "flex-start",
+                          alignContent: "center",
+                          backgroundColor: "#87eda9",
+                          borderBottomColor: "darkgray",
+                          borderBottomWidth: 1,
+                          paddingLeft: 10,
+                          paddingRight: 10,
+                          marginTop: 5,
+                        }
+                      : item.isSelected === "false" &&
+                        item.isBlurred === "false"
+                      ? {
+                          flexDirection: "row",
+                          justifyContent: "flex-start",
+                          alignContent: "center",
+                          backgroundColor: "#F0F0F0",
                           borderBottomColor: "darkgray",
                           borderBottomWidth: 1,
                           paddingLeft: 10,
@@ -912,7 +937,11 @@ const PlayerList = ({ selectedRole }) => {
                     <Text>{item.credits}</Text>
                   </View>
 
-                  {item.isSelected === "false" ? (
+                  {item.isBlurred === "true" ? (
+                    <Pressable style={{ marginLeft: "1%", width: "10%" }}>
+                      <AntDesign name="plussquareo" size={24} color="#662d91" />
+                    </Pressable>
+                  ) : item.isSelected === "false" ? (
                     <Pressable
                       onPress={() => addPlayerFunc(item, "add", index)}
                       style={{ marginLeft: "1%", width: "10%" }}
