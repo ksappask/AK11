@@ -19,13 +19,8 @@ export const CreateTeamSlice = createSlice({
           (player) => player.id === action.payload.data.id
         );
         const newArray = [...state.initialPlayersList];
-        console.log("Wicket Keeper");
-        console.log(newArray[0].wicketKeeper[index].name);
-        console.log(newArray[0].wicketKeeper[index].id);
 
-        console.log("\n\n");
-
-        newArray[0].wicketKeeper[index].selected = true;
+        newArray[0].wicketKeeper[index].isSelected = "true";
         state.initialPlayersList = newArray;
         const tempCount = state.playerCount;
         state.playerCount = tempCount + 1;
@@ -36,13 +31,8 @@ export const CreateTeamSlice = createSlice({
           (player) => player.id === action.payload.data.id
         );
         const newArray = [...state.initialPlayersList];
-        console.log("Batsman");
-        console.log(newArray[0].batsman[index].name);
-        console.log(newArray[0].batsman[index].id);
 
-        console.log("\n\n");
-
-        newArray[0].batsman[index].selected = true;
+        newArray[0].batsman[index].isSelected = "true";
         state.initialPlayersList = newArray;
         const tempCount = state.playerCount;
         state.playerCount = tempCount + 1;
@@ -53,13 +43,8 @@ export const CreateTeamSlice = createSlice({
           (player) => player.id === action.payload.data.id
         );
         const newArray = [...state.initialPlayersList];
-        console.log("All Rounder");
-        console.log(newArray[0].allRounder[index].name);
-        console.log(newArray[0].allRounder[index].id);
 
-        console.log("\n\n");
-
-        newArray[0].allRounder[index].selected = true;
+        newArray[0].allRounder[index].isSelected = "true";
         state.initialPlayersList = newArray;
         const tempCount = state.playerCount;
         state.playerCount = tempCount + 1;
@@ -70,13 +55,8 @@ export const CreateTeamSlice = createSlice({
           (player) => player.id === action.payload.data.id
         );
         const newArray = [...state.initialPlayersList];
-        console.log("Bowler");
-        console.log(newArray[0].bowler[index].name);
-        console.log(newArray[0].bowler[index].id);
 
-        console.log("\n\n");
-
-        newArray[0].bowler[index].selected = true;
+        newArray[0].bowler[index].isSelected = "true";
         state.initialPlayersList = newArray;
         const tempCount = state.playerCount;
         state.playerCount = tempCount + 1;
@@ -88,13 +68,8 @@ export const CreateTeamSlice = createSlice({
           (player) => player.id === action.payload.data.id
         );
         const newArray = [...state.initialPlayersList];
-        console.log("Wicket Keeper");
-        console.log(newArray[0].wicketKeeper[index].name);
-        console.log(newArray[0].wicketKeeper[index].id);
 
-        console.log("\n\n");
-
-        newArray[0].wicketKeeper[index].selected = false;
+        newArray[0].wicketKeeper[index].isSelected = "false";
         state.initialPlayersList = newArray;
         const tempCount = state.playerCount;
         state.playerCount = tempCount - 1;
@@ -105,13 +80,8 @@ export const CreateTeamSlice = createSlice({
           (player) => player.id === action.payload.data.id
         );
         const newArray = [...state.initialPlayersList];
-        console.log("Batsman");
-        console.log(newArray[0].batsman[index].name);
-        console.log(newArray[0].batsman[index].id);
 
-        console.log("\n\n");
-
-        newArray[0].batsman[index].selected = false;
+        newArray[0].batsman[index].isSelected = "false";
         state.initialPlayersList = newArray;
         const tempCount = state.playerCount;
         state.playerCount = tempCount - 1;
@@ -122,13 +92,8 @@ export const CreateTeamSlice = createSlice({
           (player) => player.id === action.payload.data.id
         );
         const newArray = [...state.initialPlayersList];
-        console.log("All Rounder");
-        console.log(newArray[0].allRounder[index].name);
-        console.log(newArray[0].allRounder[index].id);
 
-        console.log("\n\n");
-
-        newArray[0].allRounder[index].selected = false;
+        newArray[0].allRounder[index].isSelected = "false";
         state.initialPlayersList = newArray;
         const tempCount = state.playerCount;
         state.playerCount = tempCount - 1;
@@ -139,30 +104,18 @@ export const CreateTeamSlice = createSlice({
           (player) => player.id === action.payload.data.id
         );
         const newArray = [...state.initialPlayersList];
-        console.log("Bowler");
-        console.log(newArray[0].bowler[index].name);
-        console.log(newArray[0].bowler[index].id);
 
-        console.log("\n\n");
-
-        newArray[0].bowler[index].selected = false;
+        newArray[0].bowler[index].isSelected = "false";
         state.initialPlayersList = newArray;
         const tempCount = state.playerCount;
         state.playerCount = tempCount - 1;
       }
-
-      //console.log(state.wicketKeeper);
     },
 
     addInitialPlayer: (state, action) => {
       state.initialPlayersList = action.payload;
     },
     clearAll: (state, action) => {
-      state.wicketKeeper = [];
-      state.batsman = [];
-      state.allRounder = [];
-      state.bowler = [];
-
       state.initialPlayersList = [];
     },
 
@@ -174,6 +127,22 @@ export const CreateTeamSlice = createSlice({
         console.log(item);
       });
     },
+
+    updatePlayerList: (state, action) => {
+      const newArray = [...state.initialPlayersList];
+      const type = action.payload.type;
+      const limitReached = action.payload.limitReached;
+
+      if (type === "wicketKeeper" && limitReached === true) {
+        newArray[0].wicketKeeper.map((item, index) => {
+          if (item.isSelected === false) {
+            item.blur = true;
+          }
+        });
+
+        state.initialPlayersList = newArray;
+      }
+    },
   },
 });
 export const {
@@ -182,5 +151,6 @@ export const {
   addInitialPlayer,
   clearAll,
   getPlayerCount,
+  updatePlayerList,
 } = CreateTeamSlice.actions;
 export default CreateTeamSlice.reducer;

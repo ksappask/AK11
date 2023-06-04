@@ -38,8 +38,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "689",
           credits: "9.0",
-          selected: false,
+          isSelected: "false",
           type: "wicketKeeper",
+          isBlurred: "false",
         },
         {
           id: "KOL1",
@@ -51,8 +52,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "403",
           credits: "8.0",
-          selected: false,
+          isSelected: "false",
           type: "wicketKeeper",
+          isBlurred: "false",
         },
         {
           id: "CSK2",
@@ -64,8 +66,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "275",
           credits: "7.5",
-          selected: false,
+          isSelected: "false",
           type: "wicketKeeper",
+          isBlurred: "false",
         },
         {
           id: "KOL2",
@@ -77,8 +80,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "0",
           credits: "6.5",
-          selected: false,
+          isSelected: "false",
           type: "wicketKeeper",
+          isBlurred: "false",
         },
         {
           id: "KOL3",
@@ -90,8 +94,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "145",
           credits: "6.0",
-          selected: false,
+          isSelected: "false",
           type: "wicketKeeper",
+          isBlurred: "false",
         },
       ],
       batsman: [
@@ -105,8 +110,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "627",
           credits: "9.0",
-          selected: false,
+          isSelected: "false",
           type: "batsman",
+          isBlurred: "false",
         },
         {
           id: "CSK3",
@@ -118,8 +124,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "691",
           credits: "9.0",
-          selected: false,
+          isSelected: "false",
           type: "batsman",
+          isBlurred: "false",
         },
         {
           id: "CSK4",
@@ -131,8 +138,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "445",
           credits: "8.5",
-          selected: false,
+          isSelected: "false",
           type: "batsman",
+          isBlurred: "false",
         },
         {
           id: "KOL5",
@@ -144,8 +152,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "546",
           credits: "8.5",
-          selected: false,
+          isSelected: "false",
           type: "batsman",
+          isBlurred: "false",
         },
         {
           id: "KOL6",
@@ -157,8 +166,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "350",
           credits: "8.0",
-          selected: false,
+          isSelected: "false",
           type: "batsman",
+          isBlurred: "false",
         },
         {
           id: "KOL7",
@@ -170,8 +180,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "574",
           credits: "8.0",
-          selected: false,
+          isSelected: "false",
           type: "batsman",
+          isBlurred: "false",
         },
         {
           id: "CSK5",
@@ -183,8 +194,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "528",
           credits: "8.0",
-          selected: false,
+          isSelected: "false",
           type: "batsman",
+          isBlurred: "false",
         },
         {
           id: "CSK26",
@@ -196,8 +208,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "196",
           credits: "7.0",
-          selected: false,
+          isSelected: "false",
           type: "batsman",
+          isBlurred: "false",
         },
         {
           id: "KOL8",
@@ -209,8 +222,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "26",
           credits: "6.0",
-          selected: false,
+          isSelected: "false",
           type: "batsman",
+          isBlurred: "false",
         },
         {
           id: "CSK6",
@@ -222,8 +236,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "0",
           credits: "5.5%",
-          selected: false,
+          isSelected: "false",
           type: "batsman",
+          isBlurred: "false",
         },
         {
           id: "CSK7",
@@ -235,8 +250,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "0",
           credits: "5.0",
-          selected: false,
+          isSelected: "false",
           type: "batsman",
+          isBlurred: "false",
         },
       ],
 
@@ -251,8 +267,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "671",
           credits: "9.0",
-          selected: false,
+          isSelected: "false",
           type: "allRounder",
+          isBlurred: "false",
         },
         {
           id: "KOL9",
@@ -264,8 +281,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "584",
           credits: "8.5",
-          selected: false,
+          isSelected: "false",
           type: "allRounder",
+          isBlurred: "false",
         },
         {
           id: "CSK9",
@@ -277,8 +295,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "405",
           credits: "8.5",
-          selected: false,
+          isSelected: "false",
           type: "allRounder",
+          isBlurred: "false",
         },
         {
           id: "CSK10",
@@ -290,8 +309,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "41",
           credits: "8.0",
-          selected: false,
+          isSelected: "false",
           type: "allRounder",
+          isBlurred: "false",
         },
         {
           id: "KOL10",
@@ -303,8 +323,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "257",
           credits: "7.5",
-          selected: false,
+          isSelected: "false",
           type: "allRounder",
+          isBlurred: "false",
         },
         {
           id: "KOL11",
@@ -316,8 +337,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "49",
           credits: "7.0",
-          selected: false,
+          isSelected: "false",
           type: "allRounder",
+          isBlurred: "false",
         },
         {
           id: "CSK11",
@@ -329,8 +351,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "275",
           credits: "7.0",
-          selected: false,
+          isSelected: "false",
           type: "allRounder",
+          isBlurred: "false",
         },
         {
           id: "CSK12",
@@ -342,8 +365,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "111",
           credits: "7.0",
-          selected: false,
+          isSelected: "false",
           type: "allRounder",
+          isBlurred: "false",
         },
         {
           id: "CSK13",
@@ -355,8 +379,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "14",
           credits: "6.5",
-          selected: false,
+          isSelected: "false",
           type: "allRounder",
+          isBlurred: "false",
         },
         {
           id: "KOL12",
@@ -368,8 +393,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "145",
           credits: "6.5",
-          selected: false,
+          isSelected: "false",
           type: "allRounder",
+          isBlurred: "false",
         },
         {
           id: "CSK14",
@@ -381,8 +407,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "0",
           credits: "5.0",
-          selected: false,
+          isSelected: "false",
           type: "allRounder",
+          isBlurred: "false",
         },
         {
           id: "CSK15",
@@ -394,8 +421,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "0",
           credits: "5.0",
-          selected: false,
+          isSelected: "false",
           type: "allRounder",
+          isBlurred: "false",
         },
         {
           id: "KOL13",
@@ -406,8 +434,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "0",
           credits: "4.5",
-          selected: false,
+          isSelected: "false",
           type: "allRounder",
+          isBlurred: "false",
         },
       ],
       bowler: [
@@ -421,8 +450,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "529",
           credits: "8.5",
-          selected: false,
+          isSelected: "false",
           type: "bowler",
+          isBlurred: "false",
         },
         {
           id: "KOL14",
@@ -434,8 +464,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "604",
           credits: "8.5",
-          selected: false,
+          isSelected: "false",
           type: "bowler",
+          isBlurred: "false",
         },
         {
           id: "KOL15",
@@ -447,8 +478,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "29",
           credits: "8.0",
-          selected: false,
+          isSelected: "false",
           type: "bowler",
+          isBlurred: "false",
         },
         {
           id: "CSK17",
@@ -460,8 +492,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "197",
           credits: "8.0",
-          selected: false,
+          isSelected: "false",
           type: "bowler",
+          isBlurred: "false",
         },
         {
           id: "KOL16",
@@ -473,8 +506,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "46",
           credits: "7.5",
-          selected: false,
+          isSelected: "false",
           type: "bowler",
+          isBlurred: "false",
         },
         {
           id: "CSK18",
@@ -486,8 +520,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "117",
           credits: "7.5",
-          selected: false,
+          isSelected: "false",
           type: "bowler",
+          isBlurred: "false",
         },
         {
           id: "KOL17",
@@ -499,8 +534,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "93",
           credits: "7.0",
-          selected: false,
+          isSelected: "false",
           type: "bowler",
+          isBlurred: "false",
         },
         {
           id: "CSK19",
@@ -512,8 +548,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "365",
           credits: "7.0",
-          selected: false,
+          isSelected: "false",
           type: "bowler",
+          isBlurred: "false",
         },
         {
           id: "KOL18",
@@ -525,8 +562,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "330",
           credits: "7.0",
-          selected: false,
+          isSelected: "false",
           type: "bowler",
+          isBlurred: "false",
         },
         {
           id: "CSK20",
@@ -538,8 +576,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "161",
           credits: "6.5",
-          selected: false,
+          isSelected: "false",
           type: "bowler",
+          isBlurred: "false",
         },
         {
           id: "CSK21",
@@ -551,8 +590,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "43",
           credits: "6.0",
-          selected: false,
+          isSelected: "false",
           type: "bowler",
+          isBlurred: "false",
         },
         {
           id: "KOL19",
@@ -564,8 +604,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "74",
           credits: "6.0",
-          selected: false,
+          isSelected: "false",
           type: "bowler",
+          isBlurred: "false",
         },
         {
           id: "KOL20",
@@ -577,8 +618,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "yes",
           points: "130",
           credits: "6.0",
-          selected: false,
+          isSelected: "false",
           type: "bowler",
+          isBlurred: "false",
         },
         {
           id: "CSK22",
@@ -590,8 +632,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "0",
           credits: "5.5",
-          selected: false,
+          isSelected: "false",
           type: "bowler",
+          isBlurred: "false",
         },
         {
           id: "CSK23",
@@ -603,8 +646,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "83",
           credits: "5.5",
-          selected: false,
+          isSelected: "false",
           type: "bowler",
+          isBlurred: "false",
         },
         {
           id: "KOL21",
@@ -616,8 +660,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "52",
           credits: "5.0",
-          selected: false,
+          isSelected: "false",
           type: "bowler",
+          isBlurred: "false",
         },
         {
           id: "CSK24",
@@ -629,8 +674,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "0",
           credits: "5.0",
-          selected: false,
+          isSelected: "false",
           type: "bowler",
+          isBlurred: "false",
         },
         {
           id: "CSK25",
@@ -642,8 +688,9 @@ const PlayerList = ({ selectedRole }) => {
           playedLastMatch: "no",
           points: "0",
           credits: "4.5",
-          selected: false,
+          isSelected: "false",
           type: "bowler",
+          isBlurred: "false",
         },
       ],
     },
@@ -682,6 +729,49 @@ const PlayerList = ({ selectedRole }) => {
 
   const removePlayerFunc = (item, type) => {
     if (selectedRole === "wicketKeeper" && type === "remove") {
+      let res = true;
+      if (res === true) {
+        dispatch(
+          removePlayer({
+            type: "wicketKeeper",
+            data: item,
+          })
+        );
+      }
+    }
+
+    if (selectedRole === "batsman" && type === "remove") {
+      let res = true;
+      if (res === true) {
+        dispatch(
+          removePlayer({
+            type: "batsman",
+            data: item,
+          })
+        );
+      }
+    }
+    if (selectedRole === "allRounder" && type === "remove") {
+      let res = true;
+      if (res === true) {
+        dispatch(
+          removePlayer({
+            type: "allRounder",
+            data: item,
+          })
+        );
+      }
+    }
+    if (selectedRole === "bowler" && type === "remove") {
+      let res = true;
+      if (res === true) {
+        dispatch(
+          removePlayer({
+            type: "bowler",
+            data: item,
+          })
+        );
+      }
     }
   };
 
@@ -765,17 +855,31 @@ const PlayerList = ({ selectedRole }) => {
               {playerDataState[0].wicketKeeper.map((item, index) => (
                 <Pressable
                   key={index}
-                  style={{
-                    flexDirection: "row",
-                    justifyContent: "flex-start",
-                    alignContent: "center",
-                    backgroundColor: "#F0F0F0",
-                    borderBottomColor: "darkgray",
-                    borderBottomWidth: 1,
-                    paddingLeft: 10,
-                    paddingRight: 10,
-                    marginTop: 5,
-                  }}
+                  style={
+                    item.isSelected === "true"
+                      ? {
+                          flexDirection: "row",
+                          justifyContent: "flex-start",
+                          alignContent: "center",
+                          backgroundColor: "#d9dedb",
+                          borderBottomColor: "darkgray",
+                          borderBottomWidth: 1,
+                          paddingLeft: 10,
+                          paddingRight: 10,
+                          marginTop: 5,
+                        }
+                      : {
+                          flexDirection: "row",
+                          justifyContent: "flex-start",
+                          alignContent: "center",
+                          backgroundColor: "#F0F0F0",
+                          borderBottomColor: "darkgray",
+                          borderBottomWidth: 1,
+                          paddingLeft: 10,
+                          paddingRight: 10,
+                          marginTop: 5,
+                        }
+                  }
                 >
                   <View style={{ width: "10%" }}>
                     <Image
@@ -808,7 +912,7 @@ const PlayerList = ({ selectedRole }) => {
                     <Text>{item.credits}</Text>
                   </View>
 
-                  {item.selected === false ? (
+                  {item.isSelected === "false" ? (
                     <Pressable
                       onPress={() => addPlayerFunc(item, "add", index)}
                       style={{ marginLeft: "1%", width: "10%" }}
@@ -878,7 +982,7 @@ const PlayerList = ({ selectedRole }) => {
                     <Text>{item.credits}</Text>
                   </View>
 
-                  {item.selected === false ? (
+                  {item.isSelected === "false" ? (
                     <Pressable
                       onPress={() => addPlayerFunc(item, "add", index)}
                       style={{ marginLeft: "1%", width: "10%" }}
@@ -948,7 +1052,7 @@ const PlayerList = ({ selectedRole }) => {
                     <Text>{item.credits}</Text>
                   </View>
 
-                  {item.selected === false ? (
+                  {item.isSelected === "false" ? (
                     <Pressable
                       onPress={() => addPlayerFunc(item, "add", index)}
                       style={{ marginLeft: "1%", width: "10%" }}
@@ -1018,7 +1122,7 @@ const PlayerList = ({ selectedRole }) => {
                     <Text>{item.credits}</Text>
                   </View>
 
-                  {item.selected === false ? (
+                  {item.isSelected === "false" ? (
                     <Pressable
                       onPress={() => addPlayerFunc(item, "add", index)}
                       style={{ marginLeft: "1%", width: "10%" }}
