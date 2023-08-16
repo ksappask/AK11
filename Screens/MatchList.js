@@ -6,170 +6,36 @@ import {
   View,
   Image,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CountDown from "react-native-countdown-component";
 import MatchScreen from "./Contest/MatchScreen";
 import { useNavigation } from "@react-navigation/native";
+import { CRICKET_MATCH_LIST_API } from "../constants";
+
 const MatchList = ({}) => {
   const navigation = useNavigation();
-  const matchInfo = [
-    {
-      title: "Rwanda T20 League",
-      lineUps: "false",
-      shortMatchName1: "RG",
-      longMatchName1: "Right Guards CC",
-      matchImageUrl1:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RG@2x.png",
-      shortMatchName2: "ZCT",
-      longMatchName2: "Zonic Tigers ",
-      matchImageUrl2:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "06/20/2023 00:00:00",
-    },
-    {
-      title: "Rwanda T20 League",
-      lineUps: "false",
-      shortMatchName1: "RG",
-      longMatchName1: "Right Guards CC",
-      matchImageUrl1:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RG@2x.png",
-      shortMatchName2: "ZCT",
-      longMatchName2: "Zonic Tigers ",
-      matchImageUrl2:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "06/12/2023 00:00:00",
-    },
-    {
-      title: "Rwanda T20 League",
-      lineUps: "false",
-      shortMatchName1: "RG",
-      longMatchName1: "Right Guards CC",
-      matchImageUrl1:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RG@2x.png",
-      shortMatchName2: "ZCT",
-      longMatchName2: "Zonic Tigers ",
-      matchImageUrl2:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "06/20/2023 00:00:00",
-    },
-    {
-      title: "Rwanda T20 League",
-      lineUps: "false",
-      shortMatchName1: "RG",
-      longMatchName1: "Right Guards CC",
-      matchImageUrl1:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RG@2x.png",
-      shortMatchName2: "ZCT",
-      longMatchName2: "Zonic Tigers ",
-      matchImageUrl2:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "06/12/2023 00:00:00",
-    },
-    {
-      title: "Rwanda T20 League",
-      lineUps: "false",
-      shortMatchName1: "RG",
-      longMatchName1: "Right Guards CC",
-      matchImageUrl1:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RG@2x.png",
-      shortMatchName2: "ZCT",
-      longMatchName2: "Zonic Tigers ",
-      matchImageUrl2:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "06/20/2023 00:00:00",
-    },
-    {
-      title: "Rwanda T20 League",
-      lineUps: "false",
-      shortMatchName1: "RG",
-      longMatchName1: "Right Guards CC",
-      matchImageUrl1:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RG@2x.png",
-      shortMatchName2: "ZCT",
-      longMatchName2: "Zonic Tigers ",
-      matchImageUrl2:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "06/12/2023 00:00:00",
-    },
-    {
-      title: "Rwanda T20 League",
-      lineUps: "false",
-      shortMatchName1: "RG",
-      longMatchName1: "Right Guards CC",
-      matchImageUrl1:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RG@2x.png",
-      shortMatchName2: "ZCT",
-      longMatchName2: "Zonic Tigers ",
-      matchImageUrl2:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "06/20/2023 00:00:00",
-    },
-    {
-      title: "Rwanda T20 League",
-      lineUps: "false",
-      shortMatchName1: "RG",
-      longMatchName1: "Right Guards CC",
-      matchImageUrl1:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RG@2x.png",
-      shortMatchName2: "ZCT",
-      longMatchName2: "Zonic Tigers ",
-      matchImageUrl2:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "06/12/2023 00:00:00",
-    },
-    {
-      title: "Rwanda T20 League",
-      lineUps: "false",
-      shortMatchName1: "RG",
-      longMatchName1: "Right Guards CC",
-      matchImageUrl1:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RG@2x.png",
-      shortMatchName2: "ZCT",
-      longMatchName2: "Zonic Tigers ",
-      matchImageUrl2:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "06/20/2023 00:00:00",
-    },
-    {
-      title: "Rwanda T20 League",
-      lineUps: "false",
-      shortMatchName1: "RG",
-      longMatchName1: "Right Guards CC",
-      matchImageUrl1:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RG@2x.png",
-      shortMatchName2: "ZCT",
-      longMatchName2: "Zonic Tigers ",
-      matchImageUrl2:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "06/12/2023 00:00:00",
-    },
-    {
-      title: "Rwanda T20 League",
-      lineUps: "false",
-      shortMatchName1: "RG",
-      longMatchName1: "Right Guards CC",
-      matchImageUrl1:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RG@2x.png",
-      shortMatchName2: "ZCT",
-      longMatchName2: "Zonic Tigers ",
-      matchImageUrl2:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "06/20/2023 00:00:00",
-    },
-    {
-      title: "Rwanda T20 League",
-      lineUps: "false",
-      shortMatchName1: "RG",
-      longMatchName1: "Right Guards CC",
-      matchImageUrl1:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-RG@2x.png",
-      shortMatchName2: "ZCT",
-      longMatchName2: "Zonic Tigers ",
-      matchImageUrl2:
-        "https://d13ir53smqqeyp.cloudfront.net/flags/cr-flags/FC-ZT@2x.png",
-      time: "06/12/2023 00:00:00",
-    },
-  ];
+   
+  const [matchInfo, setMatchInfo] = useState([]);
+  const [matchListLoaded, setMatchListLoaded] = useState([false]);
+  
+  useEffect(() => {
+    console.log("********** STARTED  ****************");
+     getMatchList();
+     
+    }, []);
+
+  const getMatchList = async () => {
+    const data = await fetch(
+      CRICKET_MATCH_LIST_API
+    );
+    const matchData = await data.json();
+
+    setMatchInfo(matchData);
+    setMatchListLoaded(true);
+    console.log(matchData);
+    console.log("********** ENDED  ****************");
+  };
+
 
   const [currentDate, setCurrentDate] = useState("");
   const calculateCurrentTime = () => {
@@ -212,8 +78,8 @@ const MatchList = ({}) => {
           Upcoming Matches
         </Text>
       </View>
-
-      {matchInfo.map((item, index) => (
+      
+      {matchListLoaded == "false" ? <Text>Getting the Match List ...</Text> :matchInfo.map((item, index) => (
         <Pressable
           onPress={() => navigation.navigate("MatchScreen")}
           key={index}
@@ -239,10 +105,10 @@ const MatchList = ({}) => {
             <Text
               style={{
                 color: "gray",
-                fontSize: 14,
+                fontSize: 11,
                 fontWeight: "700",
                 alignSelf: "flex-start",
-                paddingLeft: 10,
+                
               }}
             >
               {item.title}
@@ -250,10 +116,10 @@ const MatchList = ({}) => {
             <Text
               style={{
                 color: "#06992d",
-                fontSize: 14,
+                fontSize: 11,
                 fontWeight: "600",
                 alignSelf: "flex-end",
-                paddingRight: 10,
+                
               }}
             >
               {item.lineUps == "true" ? "LineUps Out" : ""}
@@ -281,14 +147,13 @@ const MatchList = ({}) => {
                   alignItems: "center",
                   justifyContent: "space-evenly",
                   alignSelf: "flex-start",
-                  paddingLeft: 10,
+                  paddingLeft:20,
+                  paddingTop:15,
                 }}
               >
                 <Image
                   style={{
-                    width: 50,
-                    height: 50,
-                    borderRadius: 10,
+                    width: 30, height: 30, borderRadius: 30/2,
                   }}
                   source={{
                     uri: item.matchImageUrl1,
@@ -298,33 +163,23 @@ const MatchList = ({}) => {
                   style={{
                     fontWeight: "700",
                     color: "gray",
-                    fontSize: 13,
-                    marginLeft: 5,
+                    fontSize: 14,
+                    paddingLeft: 15,
                   }}
                 >
                   {item.shortMatchName1}
                 </Text>
               </View>
-              <Text
-                style={{
-                  color: "gray",
-                  fontSize: 13,
-                  fontWeight: "500",
-                  alignSelf: "flex-start",
-                  paddingLeft: 10,
-                }}
-              >
-                {item.longMatchName1}
-              </Text>
+              
             </View>
-            <View>
+            <View style={{paddingTop:15}}>
               <Text
                 style={{
                   fontWeight: "700",
                   color: "gray",
                   fontSize: 10,
                   width: 100,
-                }}
+                 }}
               >
                 {calculateSeconds(item.time) !== 0 ? (
                   <CountDown
@@ -362,7 +217,7 @@ const MatchList = ({}) => {
                   alignItems: "center",
                   justifyContent: "space-between",
                   alignSelf: "flex-end",
-                  paddingRight: 10,
+                  paddingRight: 25,
                 }}
               >
                 <Text
@@ -370,32 +225,53 @@ const MatchList = ({}) => {
                     fontWeight: "700",
                     color: "gray",
                     fontSize: 13,
-                    marginRight: 5,
+                    paddingRight: 15,
                   }}
                 >
                   {item.shortMatchName2}
                 </Text>
 
                 <Image
-                  style={{ width: 50, height: 50, borderRadius: 10 }}
+                  style={{ width: 30, height: 30, borderRadius: 30/2 }}
                   source={{
                     uri: item.matchImageUrl2,
                   }}
                 ></Image>
               </View>
+             
+            </View>
+            
+          </View>
+          <View  style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              paddingTop:15,
+            }}>
+            <Text
+                style={{
+                  color: "gray",
+                  fontSize: 13,
+                  fontWeight: "500",
+                  alignSelf: "flex-start",
+                 
+                  
+                }}
+              >
+                {item.longMatchName1}
+              </Text>
               <Text
                 style={{
                   color: "gray",
                   fontSize: 13,
                   fontWeight: "500",
                   alignSelf: "flex-end",
-                  paddingRight: 10,
+                  
                 }}
               >
                 {item.longMatchName2}
               </Text>
             </View>
-          </View>
           <View
             style={{
               flexDirection: "row",

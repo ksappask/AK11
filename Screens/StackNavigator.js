@@ -12,13 +12,15 @@ import MatchScreen from "./Contest/MatchScreen";
 import ProfileScreen from "./Profile/ProfileScreen";
 import NotificationsScreen from "./Notification/NotificationsScreen";
 import CreateTeamScreen from "./Contest/CreateTeamScreen";
+import AuthStack from "./AuthStack";
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
+      <AuthStack />
+       {/* <Stack.Navigator>
+      <Stack.Screen
           name="HomeBottomTab"
           component={HomeBottomTab}
           options={{ headerShown: false }}
@@ -53,7 +55,8 @@ const StackNavigator = () => {
           component={CreateTeamScreen}
           options={{ headerShown: false }}
         />
-      </Stack.Navigator>
+  </Stack.Navigator>*/}
+
     </NavigationContainer>
   );
 };
