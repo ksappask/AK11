@@ -18,8 +18,8 @@ const StackNavigator = () => {
 
   return (
     <NavigationContainer>
-      <AuthStack />
-       {/* <Stack.Navigator>
+      {/*<AuthStack />*/}
+        <Stack.Navigator>
       <Stack.Screen
           name="HomeBottomTab"
           component={HomeBottomTab}
@@ -55,7 +55,7 @@ const StackNavigator = () => {
           component={CreateTeamScreen}
           options={{ headerShown: false }}
         />
-  </Stack.Navigator>*/}
+  </Stack.Navigator>
 
     </NavigationContainer>
   );

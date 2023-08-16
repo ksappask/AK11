@@ -18,7 +18,7 @@ import { AuthContext } from '../AuthContext/AuthContext';
 
 const LoginScreen = ({navigation}) => {
  
-    const {test}= useContext(AuthContext);
+    //const {test}= useContext(AuthContext);
 
    return (
     <SafeAreaView style={{flex: 1, justifyContent: 'center'}}>
@@ -37,7 +37,7 @@ const LoginScreen = ({navigation}) => {
           }}>
           Login
         </Text>
-        <Text>{test}</Text>
+       
         <InputField
           label={'Email ID'}
           icon={

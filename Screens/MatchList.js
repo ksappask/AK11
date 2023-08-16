@@ -12,19 +12,27 @@ import MatchScreen from "./Contest/MatchScreen";
 import { useNavigation } from "@react-navigation/native";
 import { CRICKET_MATCH_LIST_API } from "../constants";
 
-const MatchList = ({}) => {
+const MatchList = ({matchListInfo}) => {
   const navigation = useNavigation();
    
-  const [matchInfo, setMatchInfo] = useState([]);
+  const [matchInfo, setMatchInfo] = useState(matchListInfo);
   const [matchListLoaded, setMatchListLoaded] = useState([false]);
   
   useEffect(() => {
-    console.log("********** STARTED  ****************");
-     getMatchList();
+   
+     if(matchListInfo.length == 0)
+     {
+       getMatchList();
+     }
+     else
+     {
+          setMatchInfo(matchListInfo);
+     } 
      
-    }, []);
+    }, [matchListInfo]);
 
   const getMatchList = async () => {
+     console.log("********** STARTED  ****************");
     const data = await fetch(
       CRICKET_MATCH_LIST_API
     );

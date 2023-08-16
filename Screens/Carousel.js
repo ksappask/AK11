@@ -5,14 +5,44 @@ import {
   Pressable,
   ScrollView,
 } from "react-native";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { CAROUSEL_IMAGE_LIST_API } from "../constants";
 
-const Carousel = () => {
-  const carouselImageUrls = [
-    "https://e0.pxfuel.com/wallpapers/397/676/desktop-wallpaper-ipl-team.jpg",
-    "https://wallpapercave.com/dwp2x/wp2506454.jpg",
-    "https://wallpapercave.com/dwp2x/wp12232622.jpg",
-  ];
+const Carousel = ({carouselImages}) => {
+ 
+
+  const [carouselImageUrls, setCarouselImageUrls] = useState(carouselImages);
+  useEffect(() => {
+      if(carouselImages.length == 0)
+     {
+       getCarouselImageList();
+     }
+     else
+     {
+          setCarouselImageUrls(carouselImages);
+     } 
+     
+ 
+    }, [carouselImages]);
+
+ 
+  
+    const getCarouselImageList = async () => {
+    
+    console.log("******** carousel started ****");
+    const data = await fetch(
+      CAROUSEL_IMAGE_LIST_API
+    );
+    const carouselImageList = await data.json();
+
+    setCarouselImageUrls(carouselImageList);
+    
+    console.log(carouselImageList);
+
+     console.log("******** carousel ended ****");
+  };
+
+
   return (
     <SafeAreaView>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -21,7 +51,7 @@ const Carousel = () => {
             <Image
               style={{ width: 300, height: 120, borderRadius: 10 }}
               source={{
-                uri: imageUrl,
+                uri: imageUrl.ImageUrl,
               }}
             ></Image>
           </Pressable>
