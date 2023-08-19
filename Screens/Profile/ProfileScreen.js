@@ -6,14 +6,35 @@ import {
   Image,
   ScrollView,
 } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SecondHeader from "../Header/SecondHeader";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Style from "../../Style";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { addAuthInfo } from "../Slices/AuthInfoSlice";
+import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 const ProfileScreen = () => {
+  const dispatch = useDispatch();
+  const navigation = useNavigation();
+  const logout = () => {
+    const authInformation = {
+      authToken: "null",
+      isLoading: false,
+    };
+
+    AsyncStorage.removeItem("authToken");
+    let test = AsyncStorage.getItem("authToken");
+    console.log("test  " + test);
+    navigation.navigate("MainHomeScreen");
+  };
+
+  useEffect(() => {}, []);
+
   return (
     <SafeAreaView>
       <ScrollView>
@@ -63,7 +84,7 @@ const ProfileScreen = () => {
             <Text style={Style.profileText}>Refer & Earn</Text>
           </Pressable>
 
-          <Pressable style={Style.profileButtons}>
+          <Pressable style={Style.profileButtons} onPress={() => logout()}>
             <MaterialCommunityIcons name="logout" size={24} color="#662d91" />
             <Text style={Style.profileText}>Logout</Text>
           </Pressable>
