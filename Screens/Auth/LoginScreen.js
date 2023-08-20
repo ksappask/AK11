@@ -1,37 +1,52 @@
 import React, { useEffect, useState } from "react";
-import {
-  SafeAreaView,
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+import { SafeAreaView, View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { useDispatch, useSelector } from "react-redux";
-import { addAuthInfo } from "../Slices/AuthInfoSlice";
+
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import InputField from "../Auth/InputField";
 
 const LoginScreen = () => {
-  const [loginClicked, setLoginClicked] = useState(false);
-  const dispatch = useDispatch();
   const navigation = useNavigation();
-  const authInformation = {
-    authToken: "hgyufgygyiyi",
-    isLoading: "true",
-  };
-  const login = () => {
-    // dispatch(addAuthInfo(authInformation));
-    AsyncStorage.setItem("authToken", "ggvhanhgvgahhgh");
-    navigation.navigate("MainHomeScreen");
+
+  const checktoken = async () => {
+    try {
+      let authtoken = await AsyncStorage.getItem("authToken");
+      console.log("check login set token " + authtoken);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
-  // const test = useSelector((state) => state.authInfo);
+  const setToken = async () => {
+    try {
+      await AsyncStorage.setItem("authToken", "bvjhjghjghjchy");
 
-  // console.log("test");
-  //console.log(test.authInfo.authToken ? test.authInfo.authToken : "empty");
+      checktoken();
+
+      navigation.navigate("HomeBottomTab");
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+
+  const login = async () => {
+    console.log("login clicked");
+
+    try {
+      let authToken = await AsyncStorage.getItem("authToken");
+      if (authToken !== null) {
+        console.log("inside login authtoken " + authToken);
+        navigation.navigate("HomeBottomTab");
+      } else {
+        setToken();
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: "center" }}>
@@ -110,7 +125,9 @@ const LoginScreen = () => {
           }}
         >
           <Text>New to the app?</Text>
-          <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("RegisterScreen")}
+          >
             <Text style={{ color: "#AD40AF", fontWeight: "700" }}>
               {" "}
               Register

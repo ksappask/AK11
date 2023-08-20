@@ -1,11 +1,9 @@
-import { StyleSheet, Text, View, ActivityIndicator } from "react-native";
-import React, { useEffect } from "react";
-import { NavigationContainer, useNavigation } from "@react-navigation/native";
+import { StyleSheet } from "react-native";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomeScreen from "./HomeScreen";
+
 import WalletScreen from "./Wallet/WalletScreen";
-import MyMatchesScreen from "./MyMatches/MyMatchesScreen";
-import MoreScreen from "./More/MoreScreen";
 
 import HomeBottomTab from "./HomeBottomTab";
 import MatchScreen from "./Contest/MatchScreen";
@@ -13,11 +11,8 @@ import ProfileScreen from "./Profile/ProfileScreen";
 import NotificationsScreen from "./Notification/NotificationsScreen";
 import CreateTeamScreen from "./Contest/CreateTeamScreen";
 import LoginScreen from "./Auth/LoginScreen";
-import MainHomeScreen from "./MainHomeScreen";
 import RegisterScreen from "./Auth/RegisterScreen";
-import { useDispatch, useSelector } from "react-redux";
-import { addAuthInfo } from "../Screens/Slices/AuthInfoSlice";
-import AuthStack from "./AuthStack";
+import InitialBreakScreen from "./Auth/InitialBreakScreen";
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
 
@@ -25,50 +20,78 @@ const StackNavigator = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="MainHomeScreen"
-          component={MainHomeScreen}
-          options={{ headerShown: false }}
+          name="InitialBreakScreen"
+          component={InitialBreakScreen}
+          options={{
+            headerShown: false,
+            gestureEnabled: false,
+          }}
+        />
+        <Stack.Screen
+          name="LoginScreen"
+          component={LoginScreen}
+          options={{
+            headerShown: false,
+            gestureEnabled: false,
+          }}
         />
 
         <Stack.Screen
           name="HomeBottomTab"
           component={HomeBottomTab}
-          options={{ headerShown: false }}
+          options={{
+            headerShown: false,
+            gestureEnabled: false,
+          }}
         />
         <Stack.Screen
           name="MatchScreen"
           component={MatchScreen}
-          options={{ headerShown: false }}
+          options={{
+            headerShown: false,
+            gestureEnabled: false,
+          }}
         />
         <Stack.Screen
           name="ProfileScreen"
           component={ProfileScreen}
-          options={{ headerShown: false }}
+          options={{
+            headerShown: false,
+            gestureEnabled: false,
+          }}
         />
         <Stack.Screen
           name="WalletScreen"
           component={WalletScreen}
-          options={{ headerShown: false }}
+          options={{
+            headerShown: false,
+            gestureEnabled: false,
+          }}
         />
         <Stack.Screen
           name="NotificationsScreen"
           component={NotificationsScreen}
-          options={{ headerShown: false }}
+          options={{
+            headerShown: false,
+            gestureEnabled: false,
+          }}
         />
         <Stack.Screen
           name="CreateTeamScreen"
           component={CreateTeamScreen}
-          options={{ headerShown: false }}
+          options={{
+            headerShown: false,
+            gestureEnabled: false,
+          }}
         />
-        <Stack.Screen
-          name="LoginScreen"
-          component={LoginScreen}
-          options={{ headerShown: false }}
-        />
+
         <Stack.Screen
           name="RegisterScreen"
-          component={LoginScreen}
-          options={{ headerShown: false }}
+          component={RegisterScreen}
+          options={{
+            headerShown: false,
+            gestureEnabled: false,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

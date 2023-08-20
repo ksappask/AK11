@@ -8,40 +8,22 @@ import {
 import React, { useState, useEffect } from "react";
 import { CAROUSEL_IMAGE_LIST_API } from "../constants";
 
-const Carousel = ({carouselImages}) => {
- 
-
+const Carousel = ({ carouselImages }) => {
   const [carouselImageUrls, setCarouselImageUrls] = useState(carouselImages);
   useEffect(() => {
-      if(carouselImages.length == 0)
-     {
-       getCarouselImageList();
-     }
-     else
-     {
-          setCarouselImageUrls(carouselImages);
-     } 
-     
- 
-    }, [carouselImages]);
+    if (carouselImages.length == 0) {
+      getCarouselImageList();
+    } else {
+      setCarouselImageUrls(carouselImages);
+    }
+  }, [carouselImages]);
 
- 
-  
-    const getCarouselImageList = async () => {
-    
-    console.log("******** carousel started ****");
-    const data = await fetch(
-      CAROUSEL_IMAGE_LIST_API
-    );
+  const getCarouselImageList = async () => {
+    const data = await fetch(CAROUSEL_IMAGE_LIST_API);
     const carouselImageList = await data.json();
 
     setCarouselImageUrls(carouselImageList);
-    
-    console.log(carouselImageList);
-
-     console.log("******** carousel ended ****");
   };
-
 
   return (
     <SafeAreaView>

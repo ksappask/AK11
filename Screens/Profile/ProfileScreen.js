@@ -6,34 +6,30 @@ import {
   Image,
   ScrollView,
 } from "react-native";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import SecondHeader from "../Header/SecondHeader";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Style from "../../Style";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
-import { useDispatch, useSelector } from "react-redux";
-import { addAuthInfo } from "../Slices/AuthInfoSlice";
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const ProfileScreen = () => {
-  const dispatch = useDispatch();
   const navigation = useNavigation();
-  const logout = () => {
-    const authInformation = {
-      authToken: "null",
-      isLoading: false,
-    };
+  const logout = async () => {
+    try {
+      await AsyncStorage.removeItem("authToken");
+    } catch (e) {
+      console.log(e);
+    }
 
-    AsyncStorage.removeItem("authToken");
     let test = AsyncStorage.getItem("authToken");
-    console.log("test  " + test);
-    navigation.navigate("MainHomeScreen");
+    console.log("after remove  " + test);
+    console.log("logout clicked");
+    navigation.navigate("LoginScreen");
   };
-
-  useEffect(() => {}, []);
 
   return (
     <SafeAreaView>

@@ -8,7 +8,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 
 const BottomTab = createBottomTabNavigator();
 
-function HomeTab() {
+function HomeBottomTab() {
   return (
     <BottomTab.Navigator
       initialRouteName="HomeScreen"
@@ -63,4 +63,4 @@ function HomeTab() {
   );
 }
 
-export default HomeTab;
+export default HomeBottomTab;
