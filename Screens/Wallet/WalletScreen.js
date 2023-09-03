@@ -69,7 +69,7 @@ const Wallet = ({ navigation }) => {
                   justifyContent: "space-between",
                   alignItems: "center",
                   marginTop: 10,
-                  backgroundColor: "green",
+                  backgroundColor: "#662d91",
                   borderRadius: 20,
                   paddingLeft: 15,
                   paddingRight: 15,
@@ -137,7 +137,7 @@ const Wallet = ({ navigation }) => {
                     justifyContent: "center",
                     alignContent: "center",
                     marginTop: 10,
-                    backgroundColor: "green",
+                    backgroundColor: "#662d91",
                     borderRadius: 20,
                     paddingLeft: 15,
                     paddingRight: 15,
@@ -161,7 +161,7 @@ const Wallet = ({ navigation }) => {
                 <TouchableOpacity
                   style={{
                     marginTop: 10,
-                    backgroundColor: "green",
+                    backgroundColor: "#662d91",
                     borderRadius: 20,
                     paddingLeft: 15,
                     paddingRight: 15,
