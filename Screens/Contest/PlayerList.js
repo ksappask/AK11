@@ -20,6 +20,7 @@ import {
   addInitialPlayer,
   initialPlayersList,
   removePlayer,
+  updatePlayerList,
 } from "../Slices/CreateTeamSlice";
 
 const PlayerList = ({ selectedRole }) => {
@@ -700,17 +701,16 @@ const PlayerList = ({ selectedRole }) => {
   if (playerUpdate === false) {
     dispatch(addInitialPlayer(playerData));
     setPlayerUpdate(true);
-    console.log("**********  HI AKASH ************************");
   }
 
   const initialPlayerList = useSelector(
     (state) => state.createTeam.initialPlayersList
   );
 
+  const totalPlayerCount = useSelector((state) => state.createTeam.playerCount);
+
   const [playerDataState, setPlayerDataState] = useState(initialPlayerList);
 
-  //console.log("** playerDataState **");
-  // console.log(initialPlayerList);
   useEffect(() => {
     setPlayerDataState(initialPlayerList);
   }, [initialPlayerList]);
@@ -739,7 +739,6 @@ const PlayerList = ({ selectedRole }) => {
         );
       }
     }
-
     if (selectedRole === "batsman" && type === "remove") {
       let res = true;
       if (res === true) {
@@ -776,7 +775,12 @@ const PlayerList = ({ selectedRole }) => {
   };
 
   const addPlayerFunc = (item, type, index) => {
-    if (selectedRole === "wicketKeeper" && type === "add") {
+    if (
+      selectedRole === "wicketKeeper" &&
+      type === "add" &&
+      totalPlayerCount >= 0 &&
+      totalPlayerCount < 11
+    ) {
       let res = true;
       if (res === true) {
         dispatch(
@@ -789,8 +793,12 @@ const PlayerList = ({ selectedRole }) => {
         );
       }
     }
-
-    if (selectedRole === "batsman" && type === "add") {
+    if (
+      selectedRole === "batsman" &&
+      type === "add" &&
+      totalPlayerCount >= 0 &&
+      totalPlayerCount < 11
+    ) {
       let res = true;
       if (res === true) {
         dispatch(
@@ -803,7 +811,12 @@ const PlayerList = ({ selectedRole }) => {
         );
       }
     }
-    if (selectedRole === "allRounder" && type === "add") {
+    if (
+      selectedRole === "allRounder" &&
+      type === "add" &&
+      totalPlayerCount >= 0 &&
+      totalPlayerCount < 11
+    ) {
       let res = true;
       if (res === true) {
         dispatch(
@@ -816,7 +829,12 @@ const PlayerList = ({ selectedRole }) => {
         );
       }
     }
-    if (selectedRole === "bowler" && type === "add") {
+    if (
+      selectedRole === "bowler" &&
+      type === "add" &&
+      totalPlayerCount >= 0 &&
+      totalPlayerCount < 11
+    ) {
       let res = true;
       if (res === true) {
         dispatch(
@@ -968,17 +986,56 @@ const PlayerList = ({ selectedRole }) => {
               {playerDataState[0].batsman.map((item, index) => (
                 <Pressable
                   key={index}
-                  style={{
-                    flexDirection: "row",
-                    justifyContent: "flex-start",
-                    alignContent: "center",
-                    backgroundColor: "#F0F0F0",
-                    borderBottomColor: "darkgray",
-                    borderBottomWidth: 1,
-                    paddingLeft: 10,
-                    paddingRight: 10,
-                    marginTop: 5,
-                  }}
+                  style={
+                    item.isBlurred === "true"
+                      ? {
+                          flexDirection: "row",
+                          justifyContent: "flex-start",
+                          alignContent: "center",
+                          backgroundColor: "#d9dedb",
+                          borderBottomColor: "darkgray",
+                          borderBottomWidth: 1,
+                          paddingLeft: 10,
+                          paddingRight: 10,
+                          marginTop: 5,
+                        }
+                      : item.isSelected === "true" && item.isBlurred === "false"
+                      ? {
+                          flexDirection: "row",
+                          justifyContent: "flex-start",
+                          alignContent: "center",
+                          backgroundColor: "#87eda9",
+                          borderBottomColor: "darkgray",
+                          borderBottomWidth: 1,
+                          paddingLeft: 10,
+                          paddingRight: 10,
+                          marginTop: 5,
+                        }
+                      : item.isSelected === "false" &&
+                        item.isBlurred === "false"
+                      ? {
+                          flexDirection: "row",
+                          justifyContent: "flex-start",
+                          alignContent: "center",
+                          backgroundColor: "#F0F0F0",
+                          borderBottomColor: "darkgray",
+                          borderBottomWidth: 1,
+                          paddingLeft: 10,
+                          paddingRight: 10,
+                          marginTop: 5,
+                        }
+                      : {
+                          flexDirection: "row",
+                          justifyContent: "flex-start",
+                          alignContent: "center",
+                          backgroundColor: "#F0F0F0",
+                          borderBottomColor: "darkgray",
+                          borderBottomWidth: 1,
+                          paddingLeft: 10,
+                          paddingRight: 10,
+                          marginTop: 5,
+                        }
+                  }
                 >
                   <View style={{ width: "10%" }}>
                     <Image
@@ -1038,17 +1095,56 @@ const PlayerList = ({ selectedRole }) => {
               {playerDataState[0].allRounder.map((item, index) => (
                 <Pressable
                   key={index}
-                  style={{
-                    flexDirection: "row",
-                    justifyContent: "flex-start",
-                    alignContent: "center",
-                    backgroundColor: "#F0F0F0",
-                    borderBottomColor: "darkgray",
-                    borderBottomWidth: 1,
-                    paddingLeft: 10,
-                    paddingRight: 10,
-                    marginTop: 5,
-                  }}
+                  style={
+                    item.isBlurred === "true"
+                      ? {
+                          flexDirection: "row",
+                          justifyContent: "flex-start",
+                          alignContent: "center",
+                          backgroundColor: "#d9dedb",
+                          borderBottomColor: "darkgray",
+                          borderBottomWidth: 1,
+                          paddingLeft: 10,
+                          paddingRight: 10,
+                          marginTop: 5,
+                        }
+                      : item.isSelected === "true" && item.isBlurred === "false"
+                      ? {
+                          flexDirection: "row",
+                          justifyContent: "flex-start",
+                          alignContent: "center",
+                          backgroundColor: "#87eda9",
+                          borderBottomColor: "darkgray",
+                          borderBottomWidth: 1,
+                          paddingLeft: 10,
+                          paddingRight: 10,
+                          marginTop: 5,
+                        }
+                      : item.isSelected === "false" &&
+                        item.isBlurred === "false"
+                      ? {
+                          flexDirection: "row",
+                          justifyContent: "flex-start",
+                          alignContent: "center",
+                          backgroundColor: "#F0F0F0",
+                          borderBottomColor: "darkgray",
+                          borderBottomWidth: 1,
+                          paddingLeft: 10,
+                          paddingRight: 10,
+                          marginTop: 5,
+                        }
+                      : {
+                          flexDirection: "row",
+                          justifyContent: "flex-start",
+                          alignContent: "center",
+                          backgroundColor: "#F0F0F0",
+                          borderBottomColor: "darkgray",
+                          borderBottomWidth: 1,
+                          paddingLeft: 10,
+                          paddingRight: 10,
+                          marginTop: 5,
+                        }
+                  }
                 >
                   <View style={{ width: "10%" }}>
                     <Image
@@ -1108,17 +1204,56 @@ const PlayerList = ({ selectedRole }) => {
               {playerDataState[0].bowler.map((item, index) => (
                 <Pressable
                   key={index}
-                  style={{
-                    flexDirection: "row",
-                    justifyContent: "flex-start",
-                    alignContent: "center",
-                    backgroundColor: "#F0F0F0",
-                    borderBottomColor: "darkgray",
-                    borderBottomWidth: 1,
-                    paddingLeft: 10,
-                    paddingRight: 10,
-                    marginTop: 5,
-                  }}
+                  style={
+                    item.isBlurred === "true"
+                      ? {
+                          flexDirection: "row",
+                          justifyContent: "flex-start",
+                          alignContent: "center",
+                          backgroundColor: "#d9dedb",
+                          borderBottomColor: "darkgray",
+                          borderBottomWidth: 1,
+                          paddingLeft: 10,
+                          paddingRight: 10,
+                          marginTop: 5,
+                        }
+                      : item.isSelected === "true" && item.isBlurred === "false"
+                      ? {
+                          flexDirection: "row",
+                          justifyContent: "flex-start",
+                          alignContent: "center",
+                          backgroundColor: "#87eda9",
+                          borderBottomColor: "darkgray",
+                          borderBottomWidth: 1,
+                          paddingLeft: 10,
+                          paddingRight: 10,
+                          marginTop: 5,
+                        }
+                      : item.isSelected === "false" &&
+                        item.isBlurred === "false"
+                      ? {
+                          flexDirection: "row",
+                          justifyContent: "flex-start",
+                          alignContent: "center",
+                          backgroundColor: "#F0F0F0",
+                          borderBottomColor: "darkgray",
+                          borderBottomWidth: 1,
+                          paddingLeft: 10,
+                          paddingRight: 10,
+                          marginTop: 5,
+                        }
+                      : {
+                          flexDirection: "row",
+                          justifyContent: "flex-start",
+                          alignContent: "center",
+                          backgroundColor: "#F0F0F0",
+                          borderBottomColor: "darkgray",
+                          borderBottomWidth: 1,
+                          paddingLeft: 10,
+                          paddingRight: 10,
+                          marginTop: 5,
+                        }
+                  }
                 >
                   <View style={{ width: "10%" }}>
                     <Image

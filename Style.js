@@ -26,4 +26,16 @@ export default StyleSheet.create({
   profileText: {
     paddingLeft: 10,
   },
+
+  alignCenterRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+
+  alignCenterColumn: {
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
 });

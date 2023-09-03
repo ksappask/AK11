@@ -24,16 +24,19 @@ const CreateTeamScreen = () => {
   const [totalCreditsAvailable, setTotalCreditsAvailable] = useState(100);
 
   const dispatch = useDispatch();
-  const wicketKeeper = useSelector((state) => state.createTeam.wicketKeeper);
-  const batsman = useSelector((state) => state.createTeam.batsman);
-  const allRounder = useSelector((state) => state.createTeam.allRounder);
-  const bowler = useSelector((state) => state.createTeam.bowler);
-
+  const wicketKeeperCount = useSelector(
+    (state) => state.createTeam.wicketKeeper
+  );
+  const batsmanCount = useSelector((state) => state.createTeam.batsman);
+  const allRounderCount = useSelector((state) => state.createTeam.allRounder);
+  const bowlerCount = useSelector((state) => state.createTeam.bowler);
+  const teamCreateSuccessValue = useSelector(
+    (state) => state.createTeam.teamCreateSuccess
+  );
   const playerSelectedCount = useSelector(
     (state) => state.createTeam.playerCount
   );
   const [selectedRole, setSelectedRole] = useState("wicketKeeper");
-
   const navigation = useNavigation();
   const matchData = [
     {
@@ -65,12 +68,17 @@ const CreateTeamScreen = () => {
     },
   ];
 
+  const handleBack = () => {
+    dispatch(clearAll());
+    navigation.goBack();
+  };
+
   return (
     <>
       <SafeAreaView style={Style.safeArea}>
         <View style={{ backgroundColor: "#662d91" }}>
           <View>
-            <Pressable onPress={() => navigation.goBack()}>
+            <Pressable onPress={() => handleBack()}>
               <Ionicons name="arrow-back" size={28} color="white" />
             </Pressable>
           </View>
@@ -196,7 +204,7 @@ const CreateTeamScreen = () => {
                   : styles.roleInActive
               }
             >
-              <Text>WK ({wicketKeeper.length})</Text>
+              <Text>WK ({wicketKeeperCount})</Text>
             </Pressable>
             <Pressable
               onPress={() => setSelectedRole("batsman")}
@@ -206,7 +214,7 @@ const CreateTeamScreen = () => {
                   : styles.roleInActive
               }
             >
-              <Text>BAT ({batsman.length})</Text>
+              <Text>BAT ({batsmanCount})</Text>
             </Pressable>
             <Pressable
               onPress={() => setSelectedRole("allRounder")}
@@ -216,7 +224,7 @@ const CreateTeamScreen = () => {
                   : styles.roleInActive
               }
             >
-              <Text>AR ({allRounder.length})</Text>
+              <Text>AR ({allRounderCount})</Text>
             </Pressable>
             <Pressable
               onPress={() => setSelectedRole("bowler")}
@@ -226,19 +234,19 @@ const CreateTeamScreen = () => {
                   : styles.roleInActive
               }
             >
-              <Text>BOWL ({bowler.length})</Text>
+              <Text>BOWL ({bowlerCount})</Text>
             </Pressable>
           </View>
 
           <View style={{ marginBottom: 20 }}>
             {selectedRole === "wicketKeeper" ? (
-              <Text>Select 1-4 Wicket Keeper</Text>
+              <Text>Select 1-8 Wicket Keeper</Text>
             ) : selectedRole === "batsman" ? (
-              <Text>Select 3-6 Batsman</Text>
+              <Text>Select 1-8 Batsman</Text>
             ) : selectedRole === "allRounder" ? (
-              <Text>Select 1-4 All-Rounders</Text>
+              <Text>Select 1-8 All-Rounders</Text>
             ) : selectedRole === "bowler" ? (
-              <Text>Select 3-6 Bowlers</Text>
+              <Text>Select 1-8 Bowlers</Text>
             ) : null}
           </View>
           <View style={{ height: "60%" }}>
@@ -268,18 +276,30 @@ const CreateTeamScreen = () => {
               </Text>
             </Pressable>
             <Pressable
-              style={{
-                borderColor: "#662d91",
-                borderWidth: 1,
-                backgroundColor: "#662d91",
-                marginTop: 10,
-                padding: 10,
-                marginLeft: 20,
-                borderRadius: 10,
-                width: "25%",
-                position: "relative",
-              }}
-              onPress={() => dispatch(clearAll())}
+              style={
+                teamCreateSuccessValue == false
+                  ? {
+                      borderWidth: 1,
+                      backgroundColor: "#d1a8f0",
+                      marginTop: 10,
+                      padding: 10,
+                      marginLeft: 20,
+                      borderRadius: 10,
+                      width: "25%",
+                      position: "relative",
+                    }
+                  : {
+                      borderColor: "#662d91",
+                      borderWidth: 1,
+                      backgroundColor: "#662d91",
+                      marginTop: 10,
+                      padding: 10,
+                      marginLeft: 20,
+                      borderRadius: 10,
+                      width: "25%",
+                      position: "relative",
+                    }
+              }
             >
               <Text style={{ color: "white", textAlign: "center" }}>
                 Next Step

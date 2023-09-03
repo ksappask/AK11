@@ -8,6 +8,7 @@ export default function InputField({
   keyboardType,
   fieldButtonLabel,
   fieldButtonFunction,
+  
 }) {
   return (
     <View
