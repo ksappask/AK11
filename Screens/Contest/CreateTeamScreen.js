@@ -73,6 +73,12 @@ const CreateTeamScreen = () => {
     navigation.goBack();
   };
 
+  const handleNext = () => {
+    if (teamCreateSuccessValue == true) {
+      navigation.navigate("CaptainVcScreen");
+    }
+  };
+
   return (
     <>
       <SafeAreaView style={Style.safeArea}>
@@ -276,6 +282,7 @@ const CreateTeamScreen = () => {
               </Text>
             </Pressable>
             <Pressable
+              onPress={() => handleNext()}
               style={
                 teamCreateSuccessValue == false
                   ? {

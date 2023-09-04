@@ -7,7 +7,7 @@ export const CreateTeamSlice = createSlice({
     batsman: 0,
     allRounder: 0,
     bowler: 0,
-    playerData: [],
+    selectedPlayerData: [],
     initialPlayersList: [],
     playerCount: 0,
     teamCreateSuccess: false,
@@ -376,9 +376,42 @@ export const CreateTeamSlice = createSlice({
       state.bowler = 0;
       state.playerData = [];
       state.playerCount = 0;
+      state.teamCreateSuccess = false;
     },
 
-    getPlayerCount: (state, action) => {},
+    getSelectedPlayerData: (state, action) => {
+      let newArray1 = [...state.initialPlayersList];
+      let newArray2 = [...state.initialPlayersList];
+
+      newArray1[0].wicketKeeper.map((item, index) => {
+        if (item.isSelected == false) {
+          delete newArray2[0].wicketKeeper[index];
+        }
+      });
+
+      newArray1[0].batsman.map((item, index) => {
+        if (item.isSelected == false) {
+          delete newArray2[0].batsman[index];
+        }
+      });
+
+      newArray1[0].allRounder.map((item, index) => {
+        if (item.isSelected == false) {
+          delete newArray2[0].allRounder[index];
+        }
+      });
+
+      newArray1[0].bowler.map((item, index) => {
+        if (item.isSelected == false) {
+          delete newArray2[0].bowler[index];
+        }
+      });
+
+      console.log("Hi AKash **************");
+      console.log(newArray2);
+
+      state.selectedPlayerData = newArray2;
+    },
 
     updatePlayerList: (state, action) => {},
   },
@@ -388,7 +421,7 @@ export const {
   removePlayer,
   addInitialPlayer,
   clearAll,
-  getPlayerCount,
+  getSelectedPlayerData,
   updatePlayerList,
 } = CreateTeamSlice.actions;
 export default CreateTeamSlice.reducer;
