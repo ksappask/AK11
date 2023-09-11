@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 
-const CaptainViceCaptainList = ({ data }) => {
+const CaptainVcCricketList = ({ data }) => {
   return (
     <View
       style={{
@@ -108,7 +108,7 @@ const CaptainViceCaptainList = ({ data }) => {
   );
 };
 
-export default CaptainViceCaptainList;
+export default CaptainVcCricketList;
 
 const styles = StyleSheet.create({
   txt: {

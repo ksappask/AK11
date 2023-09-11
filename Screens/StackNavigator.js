@@ -13,7 +13,7 @@ import CreateTeamScreen from "./Contest/CreateTeamScreen";
 import LoginScreen from "./Auth/LoginScreen";
 import RegisterScreen from "./Auth/RegisterScreen";
 import InitialBreakScreen from "./Auth/InitialBreakScreen";
-import CaptainVcScreen from "./Contest/CaptainVcScreen";
+import CaptainVcCricketScreen from "./Contest/CaptainVcCricketScreen";
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
 
@@ -96,8 +96,8 @@ const StackNavigator = () => {
         />
 
         <Stack.Screen
-          name="CaptainVcScreen"
-          component={CaptainVcScreen}
+          name="CaptainVcCricketScreen"
+          component={CaptainVcCricketScreen}
           options={{
             headerShown: false,
             gestureEnabled: false,

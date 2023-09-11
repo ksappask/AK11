@@ -75,7 +75,7 @@ const CreateTeamScreen = () => {
 
   const handleNext = () => {
     if (teamCreateSuccessValue == true) {
-      navigation.navigate("CaptainVcScreen");
+      navigation.navigate("CaptainVcCricketScreen");
     }
   };
 

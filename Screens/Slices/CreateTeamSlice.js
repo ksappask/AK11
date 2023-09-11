@@ -189,6 +189,36 @@ export const CreateTeamSlice = createSlice({
         state.bowler >= 1
       ) {
         state.teamCreateSuccess = true;
+
+        const newArray = [...state.initialPlayersList];
+        const teamArray = [
+          { wicketKeeper: [], batsman: [], allRounder: [], bowler: [] },
+        ];
+        newArray[0].wicketKeeper.map((item, index) => {
+          if (item.isSelected == "true") {
+            teamArray[0].wicketKeeper.push(item);
+          }
+        });
+        newArray[0].batsman.map((item, index) => {
+          if (item.isSelected == "true") {
+            teamArray[0].batsman.push(item);
+          }
+        });
+        newArray[0].allRounder.map((item, index) => {
+          if (item.isSelected == "true") {
+            teamArray[0].allRounder.push(item);
+          }
+        });
+        newArray[0].bowler.map((item, index) => {
+          if (item.isSelected == "true") {
+            teamArray[0].bowler.push(item);
+          }
+        });
+
+        state.selectedPlayerData = teamArray;
+        console.log("******************");
+        console.log(state.selectedPlayerData);
+        console.log("******************");
       }
     },
     removePlayer: (state, action) => {
