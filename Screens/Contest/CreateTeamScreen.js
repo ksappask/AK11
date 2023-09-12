@@ -21,7 +21,8 @@ import { clearAll } from "../Slices/CreateTeamSlice";
 const CreateTeamScreen = () => {
   const [team1Count, setTeam1Count] = useState(0);
   const [team2Count, setTeam2Count] = useState(0);
-  const [totalCreditsAvailable, setTotalCreditsAvailable] = useState(100);
+
+  const teamCreditValue = useSelector((state) => state.createTeam.creditsLeft);
 
   const dispatch = useDispatch();
   const wicketKeeperCount = useSelector(
@@ -161,7 +162,7 @@ const CreateTeamScreen = () => {
             >
               <View style={{ flexDirection: "column" }}>
                 <Text style={{ color: "white" }}>Credits Left</Text>
-                <Text style={{ color: "white" }}>{totalCreditsAvailable}</Text>
+                <Text style={{ color: "white" }}>{teamCreditValue}</Text>
               </View>
             </View>
           </View>

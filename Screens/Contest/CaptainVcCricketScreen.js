@@ -24,15 +24,16 @@ const CaptainVcCricketScreen = () => {
   return (
     <>
       <SafeAreaView style={Style.safeArea}>
-        <View style={{ backgroundColor: "#662d91", paddingBottom: 10 }}>
-          <Pressable
-            style={{ marginTop: 10, marginBottom: 10 }}
-            onPress={() => navigation.goBack()}
-          >
-            <Ionicons name="arrow-back" size={28} color="white" />
-          </Pressable>
-        </View>
-        <ScrollView style={{ marginBottom: 150 }}>
+        <View>
+          <View style={{ backgroundColor: "#662d91", paddingBottom: 10 }}>
+            <Pressable
+              style={{ marginTop: 10, marginBottom: 10 }}
+              onPress={() => navigation.goBack()}
+            >
+              <Ionicons name="arrow-back" size={28} color="white" />
+            </Pressable>
+          </View>
+
           <View
             style={{
               flexDirection: "column",
@@ -67,31 +68,59 @@ const CaptainVcCricketScreen = () => {
               <Text>%VC by</Text>
             </TouchableOpacity>
           </View>
+          <ScrollView style={{ height: "70%" }}>
+            <View style={{ marginTop: 10, marginBottom: 10 }}>
+              <Text>Wicket keeper</Text>
+              {selectedPlayerData[0].wicketKeeper.map((item, index) => (
+                <CaptainVcCricketList key={index} data={item} />
+              ))}
+            </View>
 
-          <View>
-            {selectedPlayerData[0].wicketKeeper.map((item, index) => (
-              <CaptainVcCricketList key={index} data={item} />
-            ))}
-          </View>
+            <View style={{ marginTop: 10, marginBottom: 10 }}>
+              <Text>Batsman</Text>
+              {selectedPlayerData[0].batsman.map((item, index) => (
+                <CaptainVcCricketList key={index} data={item} />
+              ))}
+            </View>
 
-          <View>
-            {selectedPlayerData[0].batsman.map((item, index) => (
-              <CaptainVcCricketList key={index} data={item} />
-            ))}
-          </View>
+            <View style={{ marginTop: 10, marginBottom: 10 }}>
+              <Text>All Rounder</Text>
+              {selectedPlayerData[0].allRounder.map((item, index) => (
+                <CaptainVcCricketList key={index} data={item} />
+              ))}
+            </View>
 
-          <View>
-            {selectedPlayerData[0].allRounder.map((item, index) => (
-              <CaptainVcCricketList key={index} data={item} />
-            ))}
-          </View>
+            <View style={{ marginTop: 10, marginBottom: 10 }}>
+              <Text>Bowler</Text>
+              {selectedPlayerData[0].bowler.map((item, index) => (
+                <CaptainVcCricketList key={index} data={item} />
+              ))}
+            </View>
+          </ScrollView>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "center",
+              alignContent: "center",
+            }}
+          >
+            <TouchableOpacity
+              style={{
+                borderColor: "#662d91",
+                borderWidth: 1,
+                backgroundColor: "#662d91",
+                marginTop: 10,
+                padding: 10,
 
-          <View>
-            {selectedPlayerData[0].bowler.map((item, index) => (
-              <CaptainVcCricketList key={index} data={item} />
-            ))}
+                borderRadius: 10,
+                width: "25%",
+                position: "relative",
+              }}
+            >
+              <Text style={{ color: "white", textAlign: "center" }}>Save</Text>
+            </TouchableOpacity>
           </View>
-        </ScrollView>
+        </View>
       </SafeAreaView>
     </>
   );

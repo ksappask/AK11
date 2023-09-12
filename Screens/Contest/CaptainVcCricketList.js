@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 
-const CaptainVcCricketList = ({ data }) => {
+const CaptainVcCricketList = ({ data, key }) => {
   return (
     <View
       style={{
@@ -66,6 +66,7 @@ const CaptainVcCricketList = ({ data }) => {
           }}
         >
           <Pressable
+            onPress={() => {}}
             style={{
               borderColor: "black",
               borderWidth: 1,
@@ -89,6 +90,9 @@ const CaptainVcCricketList = ({ data }) => {
           }}
         >
           <Pressable
+            onPress={() => {
+              selectViceCaptain();
+            }}
             style={{
               borderColor: "black",
               borderWidth: 1,
