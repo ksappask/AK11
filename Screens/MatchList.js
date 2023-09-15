@@ -18,7 +18,7 @@ const MatchList = ({ matchListInfo }) => {
   const [matchListLoaded, setMatchListLoaded] = useState([false]);
 
   useEffect(() => {
-    if (matchListInfo.length == 0) {
+    if (matchListInfo.length === 0) {
       getMatchList();
     } else {
       setMatchInfo(matchListInfo);
@@ -75,7 +75,7 @@ const MatchList = ({ matchListInfo }) => {
         </Text>
       </View>
 
-      {matchListLoaded == "false" ? (
+      {matchListLoaded === "false" ? (
         <Text>Getting the Match List ...</Text>
       ) : (
         matchInfo.map((item, index) => (
@@ -119,7 +119,7 @@ const MatchList = ({ matchListInfo }) => {
                   alignSelf: "flex-end",
                 }}
               >
-                {item.lineUps == "true" ? "LineUps Out" : ""}
+                {item.lineUps === "true" ? "LineUps Out" : ""}
               </Text>
             </View>
 

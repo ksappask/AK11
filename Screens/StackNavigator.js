@@ -14,6 +14,7 @@ import LoginScreen from "./Auth/LoginScreen";
 import RegisterScreen from "./Auth/RegisterScreen";
 import InitialBreakScreen from "./Auth/InitialBreakScreen";
 import CaptainVcCricketScreen from "./Contest/CaptainVcCricketScreen";
+import PreviewScreen from "./Contest/PreviewScreen";
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
 
@@ -98,6 +99,15 @@ const StackNavigator = () => {
         <Stack.Screen
           name="CaptainVcCricketScreen"
           component={CaptainVcCricketScreen}
+          options={{
+            headerShown: false,
+            gestureEnabled: false,
+          }}
+        />
+
+        <Stack.Screen
+          name="PreviewScreen"
+          component={PreviewScreen}
           options={{
             headerShown: false,
             gestureEnabled: false,

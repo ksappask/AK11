@@ -139,7 +139,7 @@ const UpcomingScreen = () => {
                 paddingRight: 10,
               }}
             >
-              {item.lineUps == "true" ? "LineUps Out" : ""}
+              {item.lineUps === "true" ? "LineUps Out" : ""}
             </Text>
           </View>
 

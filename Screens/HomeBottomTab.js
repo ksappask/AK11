@@ -14,6 +14,8 @@ function HomeBottomTab() {
       initialRouteName="HomeScreen"
       screenOptions={{
         tabBarActiveTintColor: "#662d91",
+        tabBarActiveBackgroundColor: "#F0F0F0",
+        tabBarInactiveBackgroundColor: "#F0F0F0",
       }}
     >
       <BottomTab.Screen

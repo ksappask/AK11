@@ -11,7 +11,7 @@ import { CAROUSEL_IMAGE_LIST_API } from "../constants";
 const Carousel = ({ carouselImages }) => {
   const [carouselImageUrls, setCarouselImageUrls] = useState(carouselImages);
   useEffect(() => {
-    if (carouselImages.length == 0) {
+    if (carouselImages.length === 0) {
       getCarouselImageList();
     } else {
       setCarouselImageUrls(carouselImages);

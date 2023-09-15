@@ -4,6 +4,7 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from "react-native";
 import React, { useState } from "react";
@@ -75,8 +76,14 @@ const CreateTeamScreen = () => {
   };
 
   const handleNext = () => {
-    if (teamCreateSuccessValue == true) {
+    if (teamCreateSuccessValue === true) {
       navigation.navigate("CaptainVcCricketScreen");
+    }
+  };
+
+  const handlePreview = () => {
+    if (playerSelectedCount >= 1) {
+      navigation.navigate("PreviewScreen");
     }
   };
 
@@ -267,6 +274,7 @@ const CreateTeamScreen = () => {
             }}
           >
             <Pressable
+              onPress={() => handlePreview()}
               style={{
                 borderColor: "#662d91",
                 borderWidth: 1,
@@ -285,7 +293,7 @@ const CreateTeamScreen = () => {
             <Pressable
               onPress={() => handleNext()}
               style={
-                teamCreateSuccessValue == false
+                teamCreateSuccessValue === false
                   ? {
                       borderWidth: 1,
                       backgroundColor: "#d1a8f0",

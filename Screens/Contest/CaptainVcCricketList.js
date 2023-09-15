@@ -8,12 +8,6 @@ import {
   View,
   TouchableOpacity,
 } from "react-native";
-import Style from "../../Style";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { useNavigation } from "@react-navigation/native";
-import { useDispatch, useSelector } from "react-redux";
-import { Ionicons } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
 
 const CaptainVcCricketList = ({ data, key }) => {
   return (

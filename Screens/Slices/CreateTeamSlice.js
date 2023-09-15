@@ -44,7 +44,7 @@ export const CreateTeamSlice = createSlice({
       }
 
       if (action.payload.type === "wicketKeeper") {
-        if (newArray[0].wicketKeeper[index].isBlurred == "false") {
+        if (newArray[0].wicketKeeper[index].isBlurred === "false") {
           newArray[0].wicketKeeper[index].isSelected = "true";
 
           let tempCount = state.playerCount;
@@ -58,7 +58,7 @@ export const CreateTeamSlice = createSlice({
       }
 
       if (action.payload.type === "batsman") {
-        if (newArray[0].batsman[index].isBlurred == "false") {
+        if (newArray[0].batsman[index].isBlurred === "false") {
           newArray[0].batsman[index].isSelected = "true";
 
           let tempCount = state.playerCount;
@@ -72,7 +72,7 @@ export const CreateTeamSlice = createSlice({
       }
 
       if (action.payload.type === "allRounder") {
-        if (newArray[0].allRounder[index].isBlurred == "false") {
+        if (newArray[0].allRounder[index].isBlurred === "false") {
           newArray[0].allRounder[index].isSelected = "true";
 
           let tempCount = state.playerCount;
@@ -86,7 +86,7 @@ export const CreateTeamSlice = createSlice({
       }
 
       if (action.payload.type === "bowler") {
-        if (newArray[0].bowler[index].isBlurred == "false") {
+        if (newArray[0].bowler[index].isBlurred === "false") {
           newArray[0].bowler[index].isSelected = "true";
 
           let tempCount = state.playerCount;
@@ -101,32 +101,32 @@ export const CreateTeamSlice = createSlice({
 
       if (state.playerCount === 11) {
         newArray[0].wicketKeeper.map((item, indexValue) => {
-          if (item.isSelected == "false") {
+          if (item.isSelected === "false") {
             item.isBlurred = "true";
           }
         });
 
         newArray[0].batsman.map((item, indexValue) => {
-          if (item.isSelected == "false") {
+          if (item.isSelected === "false") {
             item.isBlurred = "true";
           }
         });
 
         newArray[0].allRounder.map((item, indexValue) => {
-          if (item.isSelected == "false") {
+          if (item.isSelected === "false") {
             item.isBlurred = "true";
           }
         });
 
         newArray[0].bowler.map((item, indexValue) => {
-          if (item.isSelected == "false") {
+          if (item.isSelected === "false") {
             item.isBlurred = "true";
           }
         });
       }
 
       newArray[0].wicketKeeper.map((item, indexValue) => {
-        if (item.isSelected == "false") {
+        if (item.isSelected === "false") {
           if (
             parseFloat(newArray[0].wicketKeeper[indexValue].credits) >
             state.creditsLeft
@@ -137,7 +137,7 @@ export const CreateTeamSlice = createSlice({
       });
 
       newArray[0].batsman.map((item, indexValue) => {
-        if (item.isSelected == "false") {
+        if (item.isSelected === "false") {
           if (
             parseFloat(newArray[0].batsman[indexValue].credits) >
             state.creditsLeft
@@ -148,7 +148,7 @@ export const CreateTeamSlice = createSlice({
       });
 
       newArray[0].allRounder.map((item, indexValue) => {
-        if (item.isSelected == "false") {
+        if (item.isSelected === "false") {
           if (
             parseFloat(newArray[0].allRounder[indexValue].credits) >
             state.creditsLeft
@@ -159,7 +159,7 @@ export const CreateTeamSlice = createSlice({
       });
 
       newArray[0].bowler.map((item, indexValue) => {
-        if (item.isSelected == "false") {
+        if (item.isSelected === "false") {
           if (
             parseFloat(newArray[0].bowler[indexValue].credits) >
             state.creditsLeft
@@ -170,7 +170,7 @@ export const CreateTeamSlice = createSlice({
       });
 
       if (
-        state.playerCount == 11 &&
+        state.playerCount === 11 &&
         state.wicketKeeper >= 1 &&
         state.batsman >= 1 &&
         state.allRounder >= 1 &&
@@ -182,22 +182,22 @@ export const CreateTeamSlice = createSlice({
           { wicketKeeper: [], batsman: [], allRounder: [], bowler: [] },
         ];
         newArray[0].wicketKeeper.map((item, index) => {
-          if (item.isSelected == "true") {
+          if (item.isSelected === "true") {
             teamArray[0].wicketKeeper.push(item);
           }
         });
         newArray[0].batsman.map((item, index) => {
-          if (item.isSelected == "true") {
+          if (item.isSelected === "true") {
             teamArray[0].batsman.push(item);
           }
         });
         newArray[0].allRounder.map((item, index) => {
-          if (item.isSelected == "true") {
+          if (item.isSelected === "true") {
             teamArray[0].allRounder.push(item);
           }
         });
         newArray[0].bowler.map((item, index) => {
-          if (item.isSelected == "true") {
+          if (item.isSelected === "true") {
             teamArray[0].bowler.push(item);
           }
         });
@@ -295,32 +295,32 @@ export const CreateTeamSlice = createSlice({
 
       if (state.playerCount >= 0 && state.playerCount < 11) {
         newArray[0].wicketKeeper.map((item, index) => {
-          if (item.isBlurred == "true") {
+          if (item.isBlurred === "true") {
             item.isBlurred = "false";
           }
         });
 
         newArray[0].batsman.map((item, index) => {
-          if (item.isBlurred == "true") {
+          if (item.isBlurred === "true") {
             item.isBlurred = "false";
           }
         });
 
         newArray[0].allRounder.map((item, index) => {
-          if (item.isBlurred == "true") {
+          if (item.isBlurred === "true") {
             item.isBlurred = "false";
           }
         });
 
         newArray[0].bowler.map((item, index) => {
-          if (item.isBlurred == "true") {
+          if (item.isBlurred === "true") {
             item.isBlurred = "false";
           }
         });
       }
 
       newArray[0].wicketKeeper.map((item, indexValue) => {
-        if (item.isSelected == "false") {
+        if (item.isSelected === "false") {
           if (
             parseFloat(newArray[0].wicketKeeper[indexValue].credits) <=
             state.creditsLeft
@@ -331,7 +331,7 @@ export const CreateTeamSlice = createSlice({
       });
 
       newArray[0].batsman.map((item, indexValue) => {
-        if (item.isSelected == "false") {
+        if (item.isSelected === "false") {
           if (
             parseFloat(newArray[0].batsman[indexValue].credits) <=
             state.creditsLeft
@@ -342,7 +342,7 @@ export const CreateTeamSlice = createSlice({
       });
 
       newArray[0].allRounder.map((item, indexValue) => {
-        if (item.isSelected == "false") {
+        if (item.isSelected === "false") {
           if (
             parseFloat(newArray[0].allRounder[indexValue].credits) <=
             state.creditsLeft
@@ -353,7 +353,7 @@ export const CreateTeamSlice = createSlice({
       });
 
       newArray[0].bowler.map((item, indexValue) => {
-        if (item.isSelected == "false") {
+        if (item.isSelected === "false") {
           if (
             parseFloat(newArray[0].bowler[indexValue].credits) <=
             state.creditsLeft
