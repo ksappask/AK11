@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Image,
   Pressable,
@@ -15,15 +15,20 @@ import { Ionicons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
+import PreviewScreenPlayerList from "./PreviewScreenPlayerList";
 
 const PreviewScreen = () => {
   const navigation = useNavigation();
   //require("../../assets/Pitch.png")
   const image = {
-    uri: "https://as1.ftcdn.net/v2/jpg/01/11/97/34/1000_F_111973415_ERTPgrYkGkyoYHWPYiiIUTjRZmR9dD2h.jpg",
+    uri: "https://imgtr.ee/images/2023/09/16/84a771af201b8ca2f34289197f9b66d7.png",
   };
-  const { width } = Dimensions.get("window");
-  https: return (
+
+  const initialPlayerList = useSelector(
+    (state) => state.createTeam.initialPlayersList
+  );
+
+  return (
     <>
       <SafeAreaView style={Style.safeArea}>
         <View style={{ backgroundColor: "#4a4948", paddingBottom: 10 }}>
@@ -34,12 +39,10 @@ const PreviewScreen = () => {
             <Ionicons name="arrow-back" size={28} color="white" />
           </Pressable>
         </View>
-        <View>
-          <Text>Hi AKash</Text>
-        </View>
+
         <ScrollView>
           <ImageBackground
-            source={require("../../assets/Pitch.png")}
+            source={image}
             style={{
               width: "100%",
               aspectRatio: 0.6,
@@ -48,35 +51,62 @@ const PreviewScreen = () => {
             <View
               style={{
                 marginTop: 25,
+                display: "flex",
                 flexDirection: "row",
-                alignItems: "flex-start",
-                justifyContent: "space-evenly",
+                justifyContent: "center",
               }}
             >
               <Text style={{ color: "white" }}>WICKET-KEEPERS</Text>
             </View>
+
+            <PreviewScreenPlayerList
+              initialPlayerList={initialPlayerList[0].wicketKeeper}
+            />
+
             <View
               style={{
                 marginTop: 25,
+                display: "flex",
                 flexDirection: "row",
-                alignItems: "flex-start",
-                justifyContent: "space-evenly",
+                justifyContent: "center",
               }}
             >
-              <Image
-                source={{
-                  uri: "https://www.cricbuzz.com/a/img/v1/152x152/i1/c244818/devon-conway.jpg",
-                }}
-                style={{
-                  width: 70,
-                  height: 70,
-
-                  borderWidth: 1,
-                  borderColor: "#fff",
-                  borderRadius: 50,
-                }}
-              />
+              <Text style={{ color: "white" }}>BATSMAN</Text>
             </View>
+
+            <PreviewScreenPlayerList
+              initialPlayerList={initialPlayerList[0].batsman}
+            />
+
+            <View
+              style={{
+                marginTop: 25,
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+              }}
+            >
+              <Text style={{ color: "white" }}>ALL-ROUNDERS</Text>
+            </View>
+
+            <PreviewScreenPlayerList
+              initialPlayerList={initialPlayerList[0].allRounder}
+            />
+
+            <View
+              style={{
+                marginTop: 25,
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+              }}
+            >
+              <Text style={{ color: "white" }}>BOWLERS</Text>
+            </View>
+
+            <PreviewScreenPlayerList
+              initialPlayerList={initialPlayerList[0].bowler}
+            />
           </ImageBackground>
         </ScrollView>
       </SafeAreaView>

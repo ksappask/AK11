@@ -1043,7 +1043,7 @@ const PlayerList = ({ selectedRole }) => {
       </View>
 
       <ScrollView>
-        <View style={{}}>
+        <View>
           {selectedRole === "wicketKeeper" ? (
             <View>
               {playerDataState[0].wicketKeeper.map((item, index) => (
