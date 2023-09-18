@@ -12,12 +12,13 @@ export const CreateTeamSlice = createSlice({
     playerCount: 0,
     creditsLeft: 100,
     teamCreateSuccess: false,
+    captainViceCaptainSuccess: false,
   },
 
   reducers: {
     addPlayer: (state, action) => {
       var index = "";
-      var newArray = (newArray = [...state.initialPlayersList]);
+      var newArray = [...state.initialPlayersList];
 
       if (action.payload.type === "wicketKeeper") {
         index = state.initialPlayersList[0].wicketKeeper.findIndex(
@@ -209,7 +210,7 @@ export const CreateTeamSlice = createSlice({
     },
     removePlayer: (state, action) => {
       var index = "";
-      var newArray = (newArray = [...state.initialPlayersList]);
+      var newArray = [...state.initialPlayersList];
 
       if (action.payload.type === "wicketKeeper") {
         index = state.initialPlayersList[0].wicketKeeper.findIndex(
@@ -369,6 +370,168 @@ export const CreateTeamSlice = createSlice({
     addInitialPlayer: (state, action) => {
       state.initialPlayersList = action.payload;
     },
+
+    selectCaptainViceCaptain: (state, action) => {
+      var newArray = [...state.selectedPlayerData];
+
+      var captainSelected = false,
+        viceCaptainSelected = false;
+
+      newArray[0].wicketKeeper.map((item, index) => {
+        if (action.payload.type === "captain") {
+          if (item.id === action.payload.id) {
+            if (newArray[0].wicketKeeper[index].isViceCaptain === "true") {
+              newArray[0].wicketKeeper[index].isViceCaptain = "false";
+              newArray[0].wicketKeeper[index].isCaptain = "true";
+            } else {
+              newArray[0].wicketKeeper[index].isCaptain = "true";
+            }
+            captainSelected = true;
+          } else {
+            newArray[0].wicketKeeper[index].isCaptain = "false";
+          }
+        }
+
+        if (action.payload.type === "viceCaptain") {
+          if (item.id === action.payload.id) {
+            if (newArray[0].wicketKeeper[index].isCaptain === "true") {
+              newArray[0].wicketKeeper[index].isCaptain = "false";
+              newArray[0].wicketKeeper[index].isViceCaptain = "true";
+            } else {
+              newArray[0].wicketKeeper[index].isViceCaptain = "true";
+            }
+            viceCaptainSelected = true;
+          } else {
+            newArray[0].wicketKeeper[index].isViceCaptain = "false";
+          }
+        }
+      });
+
+      newArray[0].batsman.map((item, index) => {
+        if (action.payload.type === "captain") {
+          if (item.id === action.payload.id) {
+            if (newArray[0].batsman[index].isViceCaptain === "true") {
+              newArray[0].batsman[index].isViceCaptain = "false";
+              newArray[0].batsman[index].isCaptain = "true";
+            } else {
+              newArray[0].batsman[index].isCaptain = "true";
+            }
+            captainSelected = true;
+          } else {
+            newArray[0].batsman[index].isCaptain = "false";
+          }
+        }
+
+        if (action.payload.type === "viceCaptain") {
+          if (item.id === action.payload.id) {
+            if (newArray[0].batsman[index].isCaptain === "true") {
+              newArray[0].batsman[index].isCaptain = "false";
+              newArray[0].batsman[index].isViceCaptain = "true";
+            } else {
+              newArray[0].batsman[index].isViceCaptain = "true";
+            }
+            viceCaptainSelected = true;
+          } else {
+            newArray[0].batsman[index].isViceCaptain = "false";
+          }
+        }
+      });
+
+      newArray[0].allRounder.map((item, index) => {
+        if (action.payload.type === "captain") {
+          if (item.id === action.payload.id) {
+            if (newArray[0].allRounder[index].isViceCaptain === "true") {
+              newArray[0].allRounder[index].isViceCaptain = "false";
+              newArray[0].allRounder[index].isCaptain = "true";
+            } else {
+              newArray[0].allRounder[index].isCaptain = "true";
+            }
+            captainSelected = true;
+          } else {
+            newArray[0].allRounder[index].isCaptain = "false";
+          }
+        }
+
+        if (action.payload.type === "viceCaptain") {
+          if (item.id === action.payload.id) {
+            if (newArray[0].allRounder[index].isCaptain === "true") {
+              newArray[0].allRounder[index].isCaptain = "false";
+              newArray[0].allRounder[index].isViceCaptain = "true";
+            } else {
+              newArray[0].allRounder[index].isViceCaptain = "true";
+            }
+            viceCaptainSelected = true;
+          } else {
+            newArray[0].allRounder[index].isViceCaptain = "false";
+          }
+        }
+      });
+
+      newArray[0].bowler.map((item, index) => {
+        if (action.payload.type === "captain") {
+          if (item.id === action.payload.id) {
+            if (newArray[0].bowler[index].isViceCaptain === "true") {
+              newArray[0].bowler[index].isViceCaptain = "false";
+              newArray[0].bowler[index].isCaptain = "true";
+            } else {
+              newArray[0].bowler[index].isCaptain = "true";
+            }
+            captainSelected = true;
+          } else {
+            newArray[0].bowler[index].isCaptain = "false";
+          }
+        }
+
+        if (action.payload.type === "viceCaptain") {
+          if (item.id === action.payload.id) {
+            if (newArray[0].bowler[index].isCaptain === "true") {
+              newArray[0].bowler[index].isCaptain = "false";
+              newArray[0].bowler[index].isViceCaptain = "true";
+            } else {
+              newArray[0].bowler[index].isViceCaptain = "true";
+            }
+            viceCaptainSelected = true;
+          } else {
+            newArray[0].bowler[index].isViceCaptain = "false";
+          }
+        }
+      });
+
+      if (captainSelected === true && viceCaptainSelected === true) {
+        console.log("Entered");
+        state.captainViceCaptainSuccess = true;
+      } else {
+        state.captainViceCaptainSuccess = false;
+      }
+      state.selectedPlayerData = newArray;
+    },
+
+    clearSelectCaptainViceCaptain: (state, action) => {
+      var newArray = [...state.selectedPlayerData];
+      console.log("Call Came");
+      newArray[0].wicketKeeper.map((item, index) => {
+        newArray[0].wicketKeeper[index].isViceCaptain = "false";
+        newArray[0].wicketKeeper[index].isCaptain = "false";
+      });
+
+      newArray[0].batsman.map((item, index) => {
+        newArray[0].batsman[index].isViceCaptain === "false";
+        newArray[0].batsman[index].isCaptain === "false";
+      });
+
+      newArray[0].allRounder.map((item, index) => {
+        newArray[0].allRounder[index].isViceCaptain === "false";
+        newArray[0].allRounder[index].isCaptain === "false";
+      });
+
+      newArray[0].bowler.map((item, index) => {
+        newArray[0].bowler[index].isViceCaptain === "false";
+        newArray[0].bowler[index].isCaptain === "false";
+      });
+
+      state.selectedPlayerData = newArray;
+    },
+
     clearAll: (state, action) => {
       state.initialPlayersList = [];
       state.wicketKeeper = 0;
@@ -382,6 +545,12 @@ export const CreateTeamSlice = createSlice({
     },
   },
 });
-export const { addPlayer, removePlayer, addInitialPlayer, clearAll } =
-  CreateTeamSlice.actions;
+export const {
+  addPlayer,
+  removePlayer,
+  addInitialPlayer,
+  selectCaptainViceCaptain,
+  clearSelectCaptainViceCaptain,
+  clearAll,
+} = CreateTeamSlice.actions;
 export default CreateTeamSlice.reducer;

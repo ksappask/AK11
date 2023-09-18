@@ -40,12 +40,13 @@ const PreviewScreen = () => {
           </Pressable>
         </View>
 
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <ImageBackground
             source={image}
             style={{
               width: "100%",
-              aspectRatio: 0.6,
+              height: "auto",
+              aspectRatio: 0.55,
             }}
           >
             <View

@@ -22,7 +22,6 @@ const PreviewScreenPlayerList = (initialPlayerList) => {
   return (
     <View
       style={{
-        marginTop: 25,
         marginBottom: 10,
         display: "flex",
         flexDirection: "row",
@@ -35,7 +34,9 @@ const PreviewScreenPlayerList = (initialPlayerList) => {
         <>
           {item.isSelected === "true" ? (
             <View
+              key={index}
               style={{
+                marginTop: 25,
                 justifyContent: "center",
                 alignItems: "center",
               }}
