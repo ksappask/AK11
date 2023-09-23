@@ -25,19 +25,19 @@ const PreviewScreenPlayerList = (initialPlayerList) => {
         marginBottom: 10,
         display: "flex",
         flexDirection: "row",
-        justifyContent: "space-evenly",
-        alignItems: "center",
+        justifyContent: "center",
+
         flexWrap: "wrap",
       }}
     >
       {data.map((item, index) => (
-        <>
+        <View key={index}>
           {item.isSelected === "true" ? (
             <View
-              key={index}
               style={{
                 marginTop: 25,
-                justifyContent: "center",
+                marginLeft: 15,
+                marginRight: 15,
                 alignItems: "center",
               }}
             >
@@ -66,7 +66,7 @@ const PreviewScreenPlayerList = (initialPlayerList) => {
               </Text>
             </View>
           ) : null}
-        </>
+        </View>
       ))}
     </View>
   );

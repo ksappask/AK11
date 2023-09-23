@@ -15,10 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
-import {
-  selectCaptainViceCaptain,
-  clearSelectCaptainViceCaptain,
-} from "../Slices/CreateTeamSlice";
+import { selectCaptainViceCaptain } from "../Slices/CreateTeamSlice";
 
 const CaptainVcCricketScreen = () => {
   const navigation = useNavigation();
@@ -30,11 +27,12 @@ const CaptainVcCricketScreen = () => {
     (state) => state.createTeam.captainViceCaptainSuccess
   );
 
+  const [captainSelected, setCaptainSelected] = useState(false);
+  const [viceCaptainSelected, setViceCaptainSelected] = useState(false);
+
   const dispatch = useDispatch();
 
   useEffect(() => {}, [selectedPlayerData, captainViceCaptainSuccess]);
-
-  console.log(captainViceCaptainSuccess);
 
   const handleCaptainSelection = (id, type) => {
     dispatch(
@@ -58,6 +56,70 @@ const CaptainVcCricketScreen = () => {
 
   const handleBack = () => {
     navigation.goBack();
+  };
+
+  const handleSave = () => {
+    var newArray = [...selectedPlayerData];
+    console.log("\n*********** Printing Selected Player Data ***********\n");
+    console.log("\n WicketKeeper \n");
+    newArray[0].wicketKeeper.map((item, index) => {
+      console.log(
+        "\n" +
+          item.name +
+          "  Selected : " +
+          item.isSelected +
+          "  Captain : " +
+          item.isCaptain +
+          "  Vice Captain : " +
+          item.isViceCaptain +
+          "\n"
+      );
+    });
+
+    console.log("\n\n Batsman \n\n");
+    newArray[0].batsman.map((item, index) => {
+      console.log(
+        "\n" +
+          item.name +
+          "  Selected : " +
+          item.isSelected +
+          "  Captain : " +
+          item.isCaptain +
+          "  Vice Captain : " +
+          item.isViceCaptain +
+          "\n"
+      );
+    });
+
+    console.log("\n\n All-Rounder \n\n");
+    newArray[0].allRounder.map((item, index) => {
+      console.log(
+        "\n" +
+          item.name +
+          "  Selected : " +
+          item.isSelected +
+          "  Captain : " +
+          item.isCaptain +
+          "  Vice Captain : " +
+          item.isViceCaptain +
+          "\n"
+      );
+    });
+
+    console.log("\n\n Bowler \n\n");
+    newArray[0].bowler.map((item, index) => {
+      console.log(
+        "\n" +
+          item.name +
+          "  Selected : " +
+          item.isSelected +
+          "  Captain : " +
+          item.isCaptain +
+          "  Vice Captain : " +
+          item.isViceCaptain +
+          "\n"
+      );
+    });
   };
 
   return (
@@ -733,6 +795,7 @@ const CaptainVcCricketScreen = () => {
             }}
           >
             <TouchableOpacity
+              onPress={() => handleSave()}
               style={
                 captainViceCaptainSuccess === true
                   ? {

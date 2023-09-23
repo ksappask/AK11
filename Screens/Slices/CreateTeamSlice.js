@@ -13,6 +13,8 @@ export const CreateTeamSlice = createSlice({
     creditsLeft: 100,
     teamCreateSuccess: false,
     captainViceCaptainSuccess: false,
+    captainSelected: false,
+    viceCaptainSelected: false,
   },
 
   reducers: {
@@ -374,19 +376,18 @@ export const CreateTeamSlice = createSlice({
     selectCaptainViceCaptain: (state, action) => {
       var newArray = [...state.selectedPlayerData];
 
-      var captainSelected = false,
-        viceCaptainSelected = false;
-
       newArray[0].wicketKeeper.map((item, index) => {
         if (action.payload.type === "captain") {
           if (item.id === action.payload.id) {
             if (newArray[0].wicketKeeper[index].isViceCaptain === "true") {
               newArray[0].wicketKeeper[index].isViceCaptain = "false";
               newArray[0].wicketKeeper[index].isCaptain = "true";
+              state.captainSelected = true;
+              state.viceCaptainSelected = false;
             } else {
               newArray[0].wicketKeeper[index].isCaptain = "true";
+              state.captainSelected = true;
             }
-            captainSelected = true;
           } else {
             newArray[0].wicketKeeper[index].isCaptain = "false";
           }
@@ -397,10 +398,12 @@ export const CreateTeamSlice = createSlice({
             if (newArray[0].wicketKeeper[index].isCaptain === "true") {
               newArray[0].wicketKeeper[index].isCaptain = "false";
               newArray[0].wicketKeeper[index].isViceCaptain = "true";
+              state.captainSelected = false;
+              state.viceCaptainSelected = true;
             } else {
               newArray[0].wicketKeeper[index].isViceCaptain = "true";
+              state.viceCaptainSelected = true;
             }
-            viceCaptainSelected = true;
           } else {
             newArray[0].wicketKeeper[index].isViceCaptain = "false";
           }
@@ -413,10 +416,12 @@ export const CreateTeamSlice = createSlice({
             if (newArray[0].batsman[index].isViceCaptain === "true") {
               newArray[0].batsman[index].isViceCaptain = "false";
               newArray[0].batsman[index].isCaptain = "true";
+              state.captainSelected = true;
+              state.viceCaptainSelected = false;
             } else {
               newArray[0].batsman[index].isCaptain = "true";
+              state.captainSelected = true;
             }
-            captainSelected = true;
           } else {
             newArray[0].batsman[index].isCaptain = "false";
           }
@@ -427,10 +432,12 @@ export const CreateTeamSlice = createSlice({
             if (newArray[0].batsman[index].isCaptain === "true") {
               newArray[0].batsman[index].isCaptain = "false";
               newArray[0].batsman[index].isViceCaptain = "true";
+              state.captainSelected = false;
+              state.viceCaptainSelected = true;
             } else {
               newArray[0].batsman[index].isViceCaptain = "true";
+              state.viceCaptainSelected = true;
             }
-            viceCaptainSelected = true;
           } else {
             newArray[0].batsman[index].isViceCaptain = "false";
           }
@@ -443,10 +450,12 @@ export const CreateTeamSlice = createSlice({
             if (newArray[0].allRounder[index].isViceCaptain === "true") {
               newArray[0].allRounder[index].isViceCaptain = "false";
               newArray[0].allRounder[index].isCaptain = "true";
+              state.captainSelected = true;
+              state.viceCaptainSelected = false;
             } else {
               newArray[0].allRounder[index].isCaptain = "true";
+              state.captainSelected = true;
             }
-            captainSelected = true;
           } else {
             newArray[0].allRounder[index].isCaptain = "false";
           }
@@ -457,10 +466,12 @@ export const CreateTeamSlice = createSlice({
             if (newArray[0].allRounder[index].isCaptain === "true") {
               newArray[0].allRounder[index].isCaptain = "false";
               newArray[0].allRounder[index].isViceCaptain = "true";
+              state.captainSelected = false;
+              state.viceCaptainSelected = true;
             } else {
               newArray[0].allRounder[index].isViceCaptain = "true";
+              state.viceCaptainSelected = true;
             }
-            viceCaptainSelected = true;
           } else {
             newArray[0].allRounder[index].isViceCaptain = "false";
           }
@@ -473,10 +484,12 @@ export const CreateTeamSlice = createSlice({
             if (newArray[0].bowler[index].isViceCaptain === "true") {
               newArray[0].bowler[index].isViceCaptain = "false";
               newArray[0].bowler[index].isCaptain = "true";
+              state.captainSelected = true;
+              state.viceCaptainSelected = false;
             } else {
               newArray[0].bowler[index].isCaptain = "true";
+              state.captainSelected = true;
             }
-            captainSelected = true;
           } else {
             newArray[0].bowler[index].isCaptain = "false";
           }
@@ -487,18 +500,22 @@ export const CreateTeamSlice = createSlice({
             if (newArray[0].bowler[index].isCaptain === "true") {
               newArray[0].bowler[index].isCaptain = "false";
               newArray[0].bowler[index].isViceCaptain = "true";
+              state.captainSelected = false;
+              state.viceCaptainSelected = true;
             } else {
               newArray[0].bowler[index].isViceCaptain = "true";
+              state.viceCaptainSelected = true;
             }
-            viceCaptainSelected = true;
           } else {
             newArray[0].bowler[index].isViceCaptain = "false";
           }
         }
       });
 
-      if (captainSelected === true && viceCaptainSelected === true) {
-        console.log("Entered");
+      if (
+        state.captainSelected === true &&
+        state.viceCaptainSelected === true
+      ) {
         state.captainViceCaptainSuccess = true;
       } else {
         state.captainViceCaptainSuccess = false;
@@ -529,6 +546,10 @@ export const CreateTeamSlice = createSlice({
         newArray[0].bowler[index].isCaptain === "false";
       });
 
+      state.captainSelected = false;
+      state.viceCaptainSelected = false;
+      state.captainViceCaptainSuccess = false;
+
       state.selectedPlayerData = newArray;
     },
 
@@ -542,6 +563,9 @@ export const CreateTeamSlice = createSlice({
       state.playerCount = 0;
       state.creditsLeft = 100;
       state.teamCreateSuccess = false;
+      state.captainSelected = false;
+      state.viceCaptainSelected = false;
+      state.captainViceCaptainSuccess = false;
     },
   },
 });
