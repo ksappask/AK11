@@ -22,12 +22,10 @@ const PreviewScreenPlayerList = (initialPlayerList) => {
   return (
     <View
       style={{
-        marginBottom: 10,
-        display: "flex",
         flexDirection: "row",
         justifyContent: "center",
-
         flexWrap: "wrap",
+        marginBottom: 20,
       }}
     >
       {data.map((item, index) => (
@@ -36,6 +34,7 @@ const PreviewScreenPlayerList = (initialPlayerList) => {
             <View
               style={{
                 marginTop: 25,
+                marginBottom: 25,
                 marginLeft: 15,
                 marginRight: 15,
                 alignItems: "center",

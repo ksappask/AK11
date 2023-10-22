@@ -60,7 +60,10 @@ const CaptainVcCricketScreen = () => {
 
   const handleSave = () => {
     var newArray = [...selectedPlayerData];
-    console.log("\n*********** Printing Selected Player Data ***********\n");
+
+    console.log(JSON.stringify(selectedPlayerData));
+    //console.log(JSON.parse(JSON.stringify(selectedPlayerData)));
+    /* console.log("\n*********** Printing Selected Player Data ***********\n");
     console.log("\n WicketKeeper \n");
     newArray[0].wicketKeeper.map((item, index) => {
       console.log(
@@ -119,7 +122,7 @@ const CaptainVcCricketScreen = () => {
           item.isViceCaptain +
           "\n"
       );
-    });
+    });*/
   };
 
   return (

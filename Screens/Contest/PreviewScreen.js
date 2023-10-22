@@ -44,70 +44,73 @@ const PreviewScreen = () => {
           <ImageBackground
             source={image}
             style={{
-              width: "100%",
+              width: "auto",
               height: "auto",
-              aspectRatio: 0.55,
+              aspectRatio: "1/2",
             }}
           >
             <View
               style={{
-                marginTop: 25,
+                flex: 1,
                 display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
+                flexDirection: "column",
+                justifyContent: "space-evenly",
+                marginTop: 20,
+                marginBottom: 40,
               }}
             >
-              <Text style={{ color: "white" }}>WICKET-KEEPERS</Text>
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "center",
+                }}
+              >
+                <Text style={{ color: "white" }}>WICKET-KEEPERS</Text>
+              </View>
+
+              <PreviewScreenPlayerList
+                initialPlayerList={initialPlayerList[0].wicketKeeper}
+              />
+
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "center",
+                }}
+              >
+                <Text style={{ color: "white" }}>BATSMAN</Text>
+              </View>
+
+              <PreviewScreenPlayerList
+                initialPlayerList={initialPlayerList[0].batsman}
+              />
+
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "center",
+                }}
+              >
+                <Text style={{ color: "white" }}>ALL-ROUNDERS</Text>
+              </View>
+
+              <PreviewScreenPlayerList
+                initialPlayerList={initialPlayerList[0].allRounder}
+              />
+
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "center",
+                }}
+              >
+                <Text style={{ color: "white" }}>BOWLERS</Text>
+              </View>
+
+              <PreviewScreenPlayerList
+                initialPlayerList={initialPlayerList[0].bowler}
+              />
             </View>
-
-            <PreviewScreenPlayerList
-              initialPlayerList={initialPlayerList[0].wicketKeeper}
-            />
-
-            <View
-              style={{
-                marginTop: 25,
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-              }}
-            >
-              <Text style={{ color: "white" }}>BATSMAN</Text>
-            </View>
-
-            <PreviewScreenPlayerList
-              initialPlayerList={initialPlayerList[0].batsman}
-            />
-
-            <View
-              style={{
-                marginTop: 25,
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-              }}
-            >
-              <Text style={{ color: "white" }}>ALL-ROUNDERS</Text>
-            </View>
-
-            <PreviewScreenPlayerList
-              initialPlayerList={initialPlayerList[0].allRounder}
-            />
-
-            <View
-              style={{
-                marginTop: 25,
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-              }}
-            >
-              <Text style={{ color: "white" }}>BOWLERS</Text>
-            </View>
-
-            <PreviewScreenPlayerList
-              initialPlayerList={initialPlayerList[0].bowler}
-            />
           </ImageBackground>
         </ScrollView>
       </SafeAreaView>
