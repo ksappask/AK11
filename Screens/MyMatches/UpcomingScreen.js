@@ -99,6 +99,7 @@ const UpcomingScreen = () => {
     <ScrollView>
       {matchInfo.map((item, index) => (
         <Pressable
+          onPress={() => navigation.navigate("MatchScreen")}
           key={index}
           style={{
             margin: 10,
@@ -122,10 +123,9 @@ const UpcomingScreen = () => {
             <Text
               style={{
                 color: "gray",
-                fontSize: 14,
+                fontSize: 11,
                 fontWeight: "700",
                 alignSelf: "flex-start",
-                paddingLeft: 10,
               }}
             >
               {item.title}
@@ -133,10 +133,9 @@ const UpcomingScreen = () => {
             <Text
               style={{
                 color: "#06992d",
-                fontSize: 14,
+                fontSize: 11,
                 fontWeight: "600",
                 alignSelf: "flex-end",
-                paddingRight: 10,
               }}
             >
               {item.lineUps === "true" ? "LineUps Out" : ""}
@@ -164,14 +163,15 @@ const UpcomingScreen = () => {
                   alignItems: "center",
                   justifyContent: "space-evenly",
                   alignSelf: "flex-start",
-                  paddingLeft: 10,
+                  paddingLeft: 20,
+                  paddingTop: 15,
                 }}
               >
                 <Image
                   style={{
-                    width: 50,
-                    height: 50,
-                    borderRadius: 10,
+                    width: 30,
+                    height: 30,
+                    borderRadius: 30 / 2,
                   }}
                   source={{
                     uri: item.matchImageUrl1,
@@ -181,31 +181,21 @@ const UpcomingScreen = () => {
                   style={{
                     fontWeight: "700",
                     color: "gray",
-                    fontSize: 13,
-                    marginLeft: 5,
+                    fontSize: 14,
+                    paddingLeft: 15,
                   }}
                 >
                   {item.shortMatchName1}
                 </Text>
               </View>
-              <Text
-                style={{
-                  color: "gray",
-                  fontSize: 13,
-                  fontWeight: "500",
-                  alignSelf: "flex-start",
-                  paddingLeft: 10,
-                }}
-              >
-                {item.longMatchName1}
-              </Text>
             </View>
-            <View>
+            <View style={{ paddingTop: 15 }}>
               <Text
                 style={{
                   fontWeight: "700",
                   color: "gray",
                   fontSize: 10,
+                  width: 100,
                 }}
               >
                 {calculateSeconds(item.time) !== 0 ? (
@@ -225,7 +215,7 @@ const UpcomingScreen = () => {
                       fontWeight: "500",
                     }}
                   >
-                    Something Went Wrong !!!
+                    Something Wrong
                   </Text>
                 )}
               </Text>
@@ -244,7 +234,7 @@ const UpcomingScreen = () => {
                   alignItems: "center",
                   justifyContent: "space-between",
                   alignSelf: "flex-end",
-                  paddingRight: 10,
+                  paddingRight: 25,
                 }}
               >
                 <Text
@@ -252,31 +242,49 @@ const UpcomingScreen = () => {
                     fontWeight: "700",
                     color: "gray",
                     fontSize: 13,
-                    marginRight: 5,
+                    paddingRight: 15,
                   }}
                 >
                   {item.shortMatchName2}
                 </Text>
 
                 <Image
-                  style={{ width: 50, height: 50, borderRadius: 10 }}
+                  style={{ width: 30, height: 30, borderRadius: 30 / 2 }}
                   source={{
                     uri: item.matchImageUrl2,
                   }}
                 ></Image>
               </View>
-              <Text
-                style={{
-                  color: "gray",
-                  fontSize: 13,
-                  fontWeight: "500",
-                  alignSelf: "flex-end",
-                  paddingRight: 10,
-                }}
-              >
-                {item.longMatchName2}
-              </Text>
             </View>
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              paddingTop: 15,
+            }}
+          >
+            <Text
+              style={{
+                color: "gray",
+                fontSize: 13,
+                fontWeight: "500",
+                alignSelf: "flex-start",
+              }}
+            >
+              {item.longMatchName1}
+            </Text>
+            <Text
+              style={{
+                color: "gray",
+                fontSize: 13,
+                fontWeight: "500",
+                alignSelf: "flex-end",
+              }}
+            >
+              {item.longMatchName2}
+            </Text>
           </View>
           <View
             style={{
